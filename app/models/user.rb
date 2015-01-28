@@ -2,8 +2,7 @@ class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -24,15 +23,25 @@ class User
   # field :last_sign_in_ip,    :type => String
 
   ## Confirmable
-  field :confirmation_token,   :type => String
-  field :confirmed_at,         :type => Time
-  field :confirmation_sent_at, :type => Time
-  field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  # field :confirmation_token,   :type => String
+  # field :confirmed_at,         :type => Time
+  # field :confirmation_sent_at, :type => Time
+  # field :unconfirmed_email,    :type => String # Only if using reconfirmable
 
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
   # field :locked_at,       :type => Time
   field :first_name, type: String
-  field :last_name, type: String
+  field :last_name,  type: String
+
+
+  #this should be deleted when issue #2882 is fixed - https://github.com/plataformatec/devise/pull/2882
+  class << self
+    def serialize_from_session(key, salt)
+      record = to_adapter.get(key[0]['$oid'])
+      record if record && record.authenticatable_salt == salt
+    end
+  end
+
 end
