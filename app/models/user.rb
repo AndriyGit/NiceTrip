@@ -37,11 +37,12 @@ class User
 
 
   #this should be deleted when issue #2882 is fixed - https://github.com/plataformatec/devise/pull/2882
-  class << self
-    def serialize_from_session(key, salt)
-      record = to_adapter.get(key[0]['$oid'])
-      record if record && record.authenticatable_salt == salt
-    end
-  end
+  # delete it if authorization will be ok or uncomment lines below otherwise
+  # class << self
+  #   def serialize_from_session(key, salt)
+  #     record = to_adapter.get(key[0]['$oid'])
+  #     record if record && record.authenticatable_salt == salt
+  #   end
+  # end
 
 end
