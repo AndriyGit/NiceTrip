@@ -41,6 +41,8 @@ gem 'haml-rails'
 # gem 'annotate'
 # gem 'geocoder'
 
+gem 'quiet_assets'
+
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'mongoid_rails_migrations', :git => 'https://github.com/digitalnatives/mongoid_rails_migrations.git'
 gem 'bson_ext'
