@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+
   get 'sessions/index'
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
   root 'sessions#index'
+
+  resources :hotels
 
   # resources :users
 
