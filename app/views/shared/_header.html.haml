@@ -1,0 +1,62 @@
+.header
+  .head-bg
+    .container
+      .head-logo
+        = link_to image_tag('logo1.png'), ""
+      .top-nav
+        %span.menu
+          = image_tag('menu.png')
+        %ul.cl-effect-1
+          %li
+            = link_to 'HOME', '#'
+          %li
+            = link_to 'ABOUT', '#'
+          %li
+            = link_to 'BOOKING', '#'
+          %li
+            = link_to 'NEWS', '#'
+          %li
+            = link_to 'MAIL US', '#'
+        :javascript
+          $( "span.menu" ).click(function() {
+            $( "ul.cl-effect-1" ).slideToggle( 300, function() { });
+          });
+      .clearfix
+  .container
+    :javascript
+      $(function () {
+        // Slideshow 4
+        $("#slider3").responsiveSlides({
+        auto: true,
+        pager: false,
+        nav: false,
+        speed: 500,
+        namespace: "callbacks",
+        before: function () {
+          $('.events').append("<li>before event fired.</li>");
+        },
+        after: function () {
+          $('.events').append("<li>after event fired.</li>");
+        }
+        });
+      });
+    #top.callbacks_container
+      %ul#slider3.rslides
+        %li
+          .head-info
+            %h1
+              Duis purus leo
+              %span faucibus eu semper ut, hendrerit
+            %p Sollicitudin et elit sit amet, luctus placerat ipsum
+        %li
+          .head-info
+            %h1
+              Aenean suscipit
+              %span Suspendisse venenatis volutpat
+            %p Morbi id felis porttitor tellus viverra pulvinar. Vestibulum
+        %li
+          .head-info
+            %h1
+              Gestas vulputate
+              %span Morbi id felis porttitor tellus
+            %p Morbi id felis porttitor tellus viverra pulvinar.ante ipsum

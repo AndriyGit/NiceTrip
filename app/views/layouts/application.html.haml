@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %title NiceTrip
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    :javascript
+      jQuery(document).ready(function($) {
+        $('.scroll').click(function(event){
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+      });
+
+  %body
+    - if notice
+      %p.notice #{notice}
+    - if alert
+      %p.alert #{alert}
+
+    = render 'shared/header'
+    - if user_signed_in?
+      %div Здравствуйте, #{current_user.first_name}
+      = link_to 'Выйти', destroy_user_session_path, :method => :delete
+    - else
+      = link_to 'Войти', new_user_session_path
+      or 
+      = link_to 'Зарегистрироваться', new_user_registration_path
+
+    = yield
+    = render 'shared/footer'

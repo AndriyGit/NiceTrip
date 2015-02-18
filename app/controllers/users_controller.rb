@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  def profile
+  def index
   end
 
 end

@@ -1,0 +1,35 @@
+.footer
+  .container
+    .footer-left
+      %p
+        Design by
+        = link_to 'W3layouts', 'http://w3layouts.com/'
+    .footer-right
+      .footer-nav
+        %ul.cl-effect-1
+          %li
+            = link_to 'HOME', '#'
+          %li
+            = link_to 'ABOUT', '#'
+          %li
+            = link_to 'BOOKING', '#'
+          %li
+            = link_to 'NEWS', '#'
+          %li
+            = link_to 'MAIL US', '#'
+    .clearfix
+:javascript
+  $(document).ready(function() {
+    /*
+    var defaults = {
+        containerID: 'toTop', // fading element id
+      containerHoverID: 'toTopHover', // fading element hover id
+      scrollSpeed: 1200,
+      easingType: 'linear' 
+    };
+    */
+    
+    $().UItoTop({ easingType: 'easeOutQuart' });
+    
+  });
+= link_to raw('<span id="toTopHover" style="opacity: 1;"></span>'), "#", { id: "toTop", style: "display: block;" }
