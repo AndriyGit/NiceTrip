@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'sessions/index'
-
   devise_for :users, controllers: { registrations: 'registrations' }
 
   root 'base_objects#index'
