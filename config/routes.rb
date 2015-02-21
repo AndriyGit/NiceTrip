@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  root 'sessions#index'
+  root 'base_objects#index'
 
+  resources :base_objects
   resources :hotels
 
   # resources :users
