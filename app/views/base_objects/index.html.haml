@@ -1,0 +1,25 @@
+%h1 Welcome to NiceTrip!
+
+%table
+  %tr
+    %th Name
+    %th Address
+    %th Raiting
+    //%th User
+    %th
+    %th
+    %th
+
+  - @objects.each do |object|
+    %tr
+      %td= object.name
+      %td= object.address
+      %td= object.rating
+      //%td= object.user.name
+      %td= link_to 'Show', object
+      %td= link_to 'Edit', edit_base_object_path(object)
+      %td= link_to 'Destroy', object, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New object', new_base_object_path

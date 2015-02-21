@@ -1,0 +1,19 @@
+= form_for @hotel do |f|
+  - if @hotel.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@hotel.errors.count, "error")} prohibited this data from being saved:"
+      %ul
+        - @hotel.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :address
+    = f.text_area :address
+  .field
+    = f.label :rating
+    = f.text_field :rating
+  .actions
+    = f.submit 'Save'
