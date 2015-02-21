@@ -1,3 +1,71 @@
+.booking
+  .container
+    .booking-info
+      %h3 booking
+    .booking-form
+      .online_reservation
+        .b_room
+          .booking_room
+            .reservation
+              %ul
+                %li.span1_of_1.left
+                  %h5 From
+                  .book_date
+                    %form
+                      %input{type: "text", placeholder: "Type Depature City", required: true }
+                %li.span1_of_1.left
+                  %h5 To
+                  .book_date
+                    %form
+                      %input{type: "text", placeholder: "Type Depature City", required: true }
+                %li.span1_of_1.left
+                  %h5 Arrival
+                  .book_date
+                    %form
+                      %input{class: 'date', id: 'datepicker', type: "text", value: "2/08/2013", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = '2/08/2013';}", required: true }
+                %li.span1_of_1.left
+                  %h5 Depature
+                  .book_date
+                    %form
+                      %input{ class:"date", id: "datepicker1", type: "text", value: "22/08/2013", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = '22/08/2013';}", required: true }
+                %li.span1_of_1
+                  %h5 Class
+                  .section_room
+                    %select{ id: 'country', class: 'frm-field required', onchange: "change_country(this.value)" }
+                      = options_for_select([["Economy", "null"], ["Business", "null"], ["First Class", "AX"], ["Premium Economy", "AX"]])
+                %li.span1_of_3
+                  .date_btn
+                    %form
+                      %input{type: "submit", value:"Find Flight"}
+                .clearfix
+          .clearfix
+    .clearfix
+    .banner-grid-info
+      %h3 TOP DESTINATIONS
+      %p Pellentesque tempor sem in scelerisque mollis.
+    .top-grids
+      .top-grid
+        = image_tag('6.jpg')
+        .top-grid-info
+          %h3 Vestibulum auctor
+          %p Morbi id felis porttitor tellus viverra pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices .
+      .top-grid
+        = image_tag('3.jpg')
+        .top-grid-info
+          %h3 Vestibulum auctor
+          %p Morbi id felis porttitor tellus viverra pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices .
+      .top-grid
+        = image_tag('2.jpg')
+        .top-grid-info
+          %h3 Vestibulum auctor
+          %p Morbi id felis porttitor tellus viverra pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices .
+      .top-grid
+        = image_tag('4.jpg')
+        .top-grid-info
+          %h3 Vestibulum auctor
+          %p Morbi id felis porttitor tellus viverra pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices .
+      .clearfix
+    .clearfix
 %h1 Welcome to NiceTrip!
 
 %table
