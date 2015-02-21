@@ -1,0 +1,15 @@
+.booking
+  .container
+    .booking-info
+      %h3 Forgot your password?
+    .col-md-6.contact-form
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = devise_error_messages!
+        %div
+          = f.label :email, "Enter Email Linked To Your Account"
+          = f.email_field :email, { tabindex: '3', maxlength: 256}
+  
+        %div
+          = f.submit "Send me reset password instructions", { tabindex: '5' }
+        = link_to "Return To Login", new_session_path(resource_name)
+.clearfix

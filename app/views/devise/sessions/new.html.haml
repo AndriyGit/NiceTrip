@@ -1,0 +1,26 @@
+.booking
+  .container
+    .booking-info
+      %h3 Log In
+    .col-md-6.contact-form
+      = form_for(resource, as: resource_name, url: user_session_path) do |f|
+        = devise_error_messages!
+
+        %div
+          = f.label :email
+          = f.email_field :email, { tabindex: '28', placeholder: "Enter your email address",  autocomplete: 'off' }
+
+        %div
+          = f.label :password
+          = f.password_field :password, { tabindex: '29', placeholder: 'Choose your password', autocomplete: 'off' }
+
+        %div
+          = f.label :remember_me
+          = f.check_box :remember_me
+
+        %div
+          = link_to "Forgot Your Password?", new_password_path(resource_name)
+
+        %div
+        = f.submit 'Log In', { tabindex: '30' }
+.clearfix
