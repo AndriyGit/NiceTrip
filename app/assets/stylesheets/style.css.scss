@@ -1014,9 +1014,9 @@ select option{
 	display: block;
 }
 .contact-form form{
-	text-align:right;
+	text-align:left;
 }
-.contact-form input[type="text"] {
+.contact-form input[type="text"], input[type="email"], input[type="password"] {
 	width: 100%;
 	color: #898888;
 	background: none;
@@ -1025,17 +1025,6 @@ select option{
 	padding: .5em;
 	margin-bottom: 1em;
 	border: solid 1px #D5D4D4;
-	-webkit-appearance: none;
-}
-.contact-form textarea {
-	resize: none;
-	width: 100%;
-	color: #898888;
-	font-size: 16px;
-	outline: none;
-	padding: .5em;
-	border: solid 1px #D5D4D4;
-	min-height: 150px;
 	-webkit-appearance: none;
 }
 .contact-form input[type="submit"] {

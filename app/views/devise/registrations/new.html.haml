@@ -1,28 +1,27 @@
-%h2 Sign up
+.col-md-4.contact-form.center
+  %h2 Sign up
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %div
+      = f.label :first_name
+      = f.text_field :first_name, { tabindex: '1', placeholder: 'First Name', autofocus: true }
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+    %div
+      = f.label :last_name
+      = f.text_field :last_name, { tabindex: '2', placeholder: 'Last Name', autofocus: true }
 
-  %div
-    = f.label :first_name
-    = f.text_field :first_name, autofocus: true
+    %div
+      = f.label :email
+      = f.email_field :email, { tabindex: '3', placeholder: "Enter your email address",  autocomplete: 'off' }
 
-  %div
-    = f.label :last_name
-    = f.text_field :last_name
+    %div
+      = f.label :password
+      = f.password_field :password, { tabindex: '4', placeholder: 'Choose your password', autocomplete: 'off' }
 
-  %div
-    = f.label :email
-
-    = f.email_field :email
-
-  %div
-    = f.label :password
-    = f.password_field :password
-
-  %div
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-
-  %div
-    = f.submit 'Sign up'
+    %div
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, { tabindex: '5', placeholder: "Confirm your password", autocomplete: 'off' }
+  
+    %div
+      = f.submit 'Sign up', { tabindex: '5' }
+.clearfix
