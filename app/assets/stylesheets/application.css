@@ -19,3 +19,8 @@
   right: 5%;
   color: #fff;
 }
+
+.sub-menu {
+  background-color: red;
+  display: none;
+}

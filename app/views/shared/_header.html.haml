@@ -8,15 +8,22 @@
           = image_tag('menu.png')
         %ul.cl-effect-1
           %li
-            = link_to 'HOME', '#'
+            = link_to 'Home', '/'
           %li
-            = link_to 'ABOUT', '#'
+            = link_to 'About', '#'
           %li
-            = link_to 'BOOKING', '#'
+            = link_to 'Booking', '#'
           %li
-            = link_to 'NEWS', '#'
+            = link_to t('Add Place'), '#', id: 'add_place_button'
+            %ul.sub-menu
+              %li
+                = link_to ('Hotel'), '#'
+              %li
+                = link_to ('Other place 1'), '#'
+              %li
+                = link_to ('Other place 2'), '#'
           %li
-            = link_to 'MAIL US', '#'
+            = link_to 'Mail Us', '#'
         :javascript
           $( "span.menu" ).click(function() {
             $( "ul.cl-effect-1" ).slideToggle( 300, function() { });
