@@ -4,8 +4,13 @@ Rails.application.routes.draw do
 
   root 'base_objects#index'
 
-  resources :base_objects
+  resources :base_objects, only: [:edit, :index]
+
+  get 'base_objects/new/:type' => 'base_objects#new', as: :new_base_object
+
   resources :hotels
+  resources :showplaces
+  resources :caterings
 
   get 'users/:id' => 'users#show', as: :my_account
   get 'users/set_locale/:locale' => 'users#set_locale', as: :set_locale
