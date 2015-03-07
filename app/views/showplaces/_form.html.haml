@@ -1,3 +1,5 @@
+%h1= t('add_new_showplace')
+
 = form_for @object do |f|
   - if @object.errors.any?
     #error_explanation
@@ -15,5 +17,8 @@
   .field
     = f.label :rating, t('raiting')
     = f.text_field :rating
+  .field
+    = f.label :image, t('Add image')
+    = f.file_field :image
   .actions
     = f.submit t('save')

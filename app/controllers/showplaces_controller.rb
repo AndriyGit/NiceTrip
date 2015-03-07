@@ -6,8 +6,7 @@ class ShowplacesController < BaseObjectsController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def permited_params
-    params.require(:showplace).permit(:name, :kind, :rating)
+    params.require(:showplace).permit(:name, :kind, :rating, :image)
   end
 end

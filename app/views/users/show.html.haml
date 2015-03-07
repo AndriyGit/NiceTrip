@@ -6,7 +6,7 @@
       %h3=t('personal_info')
     .mail-info-grids
       .col-md-6.mail-info-grid
-        = image_tag(@user.image.present? ? @user.image_url(:full) : 'noavatar.gif', width: 300, height: 300)
+        = image_tag(@user.image.present? ? @user.image_url(:full) : 'noavatar.gif', width: 300, height: 300, class: "circle-extrasmall")
       .col-md-6.contact-form
         %p
           = t('first_name')

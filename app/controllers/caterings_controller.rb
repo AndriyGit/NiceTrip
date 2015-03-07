@@ -6,8 +6,7 @@ class CateringsController < BaseObjectsController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def permited_params
-    params.require(:catering).permit(:name, :kind, :rating)
+    params.require(:catering).permit(:name, :kind, :rating, :image)
   end
 end

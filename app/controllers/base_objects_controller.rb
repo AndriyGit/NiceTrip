@@ -6,7 +6,7 @@ class BaseObjectsController < ApplicationController
 
   def new
     @object = constantized_object_type.new
-    render :partial => "#{object_type.pluralize}/new"
+    render :partial => "#{object_type.pluralize}/form"
   end
 
   def create
