@@ -26,7 +26,8 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'carrierwave'
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem 'cloudinary'
 gem 'kaminari'
 # Use unicorn as the app server
@@ -46,7 +47,7 @@ gem 'haml-rails'
 gem 'quiet_assets'
 
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
-gem 'mongoid_rails_migrations', :git => 'https://github.com/digitalnatives/mongoid_rails_migrations.git'
+gem 'mongoid_rails_migrations', git: 'https://github.com/digitalnatives/mongoid_rails_migrations.git'
 gem 'bson_ext'
 
 gem 'bootstrap-sass'

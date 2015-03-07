@@ -1,34 +1,6 @@
 .header
   .head-bg
-    .container
-      .head-logo
-        = link_to image_tag('logo1.png'), ""
-      .top-nav
-        %span.menu
-          = image_tag('menu.png')
-        %ul.cl-effect-1
-          %li
-            = link_to 'Home', '/'
-          %li
-            = link_to 'About', '#'
-          %li
-            = link_to 'Booking', '#'
-          %li
-            = link_to t('Add new place'), '#'
-            %ul.sub-menu
-              %li
-                = link_to t('Hotel'), '#'
-              %li
-                = link_to t('Showplace'), '#'
-              %li
-                = link_to t('Restaurant'), '#'
-          %li
-            = link_to 'Mail Us', '#'
-        :javascript
-          $( "span.menu" ).click(function() {
-            $( "ul.cl-effect-1" ).slideToggle( 300, function() { });
-          });
-      .clearfix
+    = render 'shared/nav'
   .container
     :javascript
       $(function () {

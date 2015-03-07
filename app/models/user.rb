@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  mount_uploader :image, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
@@ -48,7 +49,7 @@ class User
   has_many :base_object
 
   def name
-    current_user.first_name + ' ' + current_user.last_name
+    first_name + ' ' + last_name
   end
 
 

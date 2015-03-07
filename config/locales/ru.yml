@@ -1,0 +1,9 @@
+ru:
+  log_out: 'Выход'
+  log_in: 'Вход'
+  personal_info: 'ПЕРСОНАЛЬНЫЕ ДАННЫЕ'
+  my_account: 'Мой аккаунт'
+  first_name: 'Имя'
+  last_name: 'Фамилия'
+  email: 'Электронный адрес'
+  password: 'Пароль'

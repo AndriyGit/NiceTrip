@@ -20,4 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  log_out: 'Log Out'
+  log_in: 'Log In'
+  personal_info: 'PERSONAL INFO'
+  my_account: 'My account'
+  first_name: 'First Name'
+  last_name: 'Last Name'
+  email: 'Email'
+  password: 'Password'

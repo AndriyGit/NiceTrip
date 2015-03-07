@@ -1,0 +1,23 @@
+.head-bg.green
+  = render 'shared/nav'
+.mail
+  .container
+    .mail-info
+      %h3=t('personal_info')
+    .mail-info-grids
+      .col-md-6.mail-info-grid
+        = image_tag(@user.image.present? ? @user.image_url(:thumb) : '14.jpg', width: 300, height: 300)
+      .col-md-6.contact-form
+        %p
+          = t('first_name')
+          #{@user.first_name}
+        %p
+          = t('last_name')
+          #{@user.last_name}
+        %p
+          = t('email')
+          #{@user.email}
+        %p
+          = t('password')
+          ••••••
+        = link_to t('Edit profile')

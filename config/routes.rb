@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :base_objects
   resources :hotels
 
+  get 'users/:id' => 'users#show', as: :my_account
+  get 'users/set_locale/:locale' => 'users#set_locale', as: :set_locale
+
   # resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
