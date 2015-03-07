@@ -1,0 +1,20 @@
+
+#user_info{
+  position: fixed;
+  top: 10px;
+  right: 5%;
+  color: #fff;
+}
+
+li {
+  & > ul {
+    display: none;
+    & > li {
+      float: left;
+      clear: both;
+    }
+  }
+  &:hover > ul {
+    display: block;
+  }
+}
