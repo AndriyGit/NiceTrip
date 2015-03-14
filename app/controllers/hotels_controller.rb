@@ -7,7 +7,7 @@ class HotelsController < BaseObjectsController
   private
 
   def permited_params
-    params.require(:hotel).permit(:name, :address, :rating, :image)
+    params.require(:hotel).permit(:name, :address, :rating, :image, :latitude, :longitude ,:min_price, :number_of_stars)
   end
 
 end

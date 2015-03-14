@@ -44,7 +44,7 @@ en:
   address: 'Address'
   kind_of_showplace: 'Kind of showplace'
   kind_of_catering: 'Kind of catering'
-  raiting: 'Raiting'
+  rating: 'Rating'
   save: 'Save'
   add_new_hotel: 'Add new hotel'
   add_new_showplace: 'Add new showplace'
@@ -52,3 +52,6 @@ en:
   first_last_name_cant_be_blank: "First Name and Last Name Can't be blank!"
   password_confirmation: "Password Confirmation Doesn't Match Password"
   invalid_current_password: "Invalid Current Password"
+  images: 'Images'
+  min_price: 'Minimum price per night'
+  number_of_stars: 'Number of stars'

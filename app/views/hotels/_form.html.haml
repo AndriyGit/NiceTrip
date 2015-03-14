@@ -18,7 +18,17 @@
     = f.label :rating, t('rating')
     = f.text_field :rating
   .field
-    = f.label :image, t('Add image')
+    = f.label :image, t('images')
     = f.file_field :image
+  .field
+    = f.label :min_price, t('min_price')
+    = f.number_field :min_price
+  .field
+    = f.label :number_of_stars, t('number_of_stars')
+    = f.number_field :number_of_stars, in: 1...8
+  .field
+    = f.hidden_field :latitude, :value => 50
+  .field
+    = f.hidden_field :longitude, :value => 50
   .actions
     = f.submit t('save')
