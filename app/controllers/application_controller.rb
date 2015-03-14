@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :get_locale
 
+  def bad_request_json(message)
+   render json: { errors: message }, status: :bad_request
+  end
+
   protected
 
   def get_locale

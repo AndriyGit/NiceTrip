@@ -49,7 +49,8 @@ en:
   add_new_hotel: 'Add new hotel'
   add_new_showplace: 'Add new showplace'
   add_new_catering: 'Add new catering'
-  first_last_name_cant_be_blank: "First Name and Last Name Can't be blank!"
+  first_last_name_cant_be_blank: "First Name and Last Name Can't be Blank!"
+  password_and_password_confirmation_cant_be_blank: "Password and Password Confirmation Can't be Blank!"
   password_confirmation: "Password Confirmation Doesn't Match Password"
   invalid_current_password: "Invalid Current Password"
   images: 'Images'
