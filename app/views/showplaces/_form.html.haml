@@ -13,12 +13,19 @@
     = f.text_field :name
   .field
     = f.label :kind, t('kind_of_showplace')
-    = f.text_area :kind
+    = f.select :kind, options_for_select(Showplace::KINDS::ALL)
   .field
-    = f.label :rating, t('raiting')
-    = f.text_field :rating
+    = f.label :address, t('address')
+    = f.text_area :address
   .field
-    = f.label :image, t('Add image')
+    = f.label :rating, t('rating')
+    = f.number_field :rating, in: 1...11
+  .field
+    = f.label :image, t('images')
     = f.file_field :image
+  .field
+    = f.hidden_field :latitude, :value => 60
+  .field
+    = f.hidden_field :longitude, :value => 60
   .actions
     = f.submit t('save')

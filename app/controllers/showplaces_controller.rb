@@ -7,6 +7,6 @@ class ShowplacesController < BaseObjectsController
   private
 
   def permited_params
-    params.require(:showplace).permit(:name, :kind, :rating, :image)
+    params.require(:showplace).permit(:name, :kind, :address, :rating, :image, :latitude, :longitude)
   end
 end

@@ -17,7 +17,7 @@ class BaseObjectsController < ApplicationController
       if @object.save
         format.html { redirect_to base_objects_path, notice: '#{@object.type} was successfully created.' }
       else
-        format.html { render :new }
+        format.html { render :partial => 'form' }
       end
     end
   end
