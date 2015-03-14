@@ -12,8 +12,13 @@ Rails.application.routes.draw do
   resources :showplaces
   resources :caterings
 
-  get 'users/:id' => 'users#show', as: :my_account
+  get 'my_account' => 'users#show', as: :my_account
   get 'users/set_locale/:locale' => 'users#set_locale', as: :set_locale
+  get '/users/edit_user/:type' => "users#edit_user", as: :edit_user
+  patch 'users/upload_avatar' => 'users#upload_avatar', as: :upload_avatar
+  get 'users/delete_avatar' => 'users#delete_avatar', as: :delete_avatar
+  post '/users/save_user_name' => "users#save_user_name"
+  post '/users/save_user_password' => "users#save_user_password"
 
   # resources :users
 

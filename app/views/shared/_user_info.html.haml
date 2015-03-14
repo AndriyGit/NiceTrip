@@ -6,9 +6,3 @@
   - if user_signed_in?
     = image_tag(current_user.image.present? ? current_user.image_url(:tiny_thumb) : 'noavatar.gif', width: 50, height: 50, class: "circle-extrasmall")
     %div Hello, #{current_user.first_name}
-    = link_to t('log_out'), destroy_user_session_path, method: :delete, confirm: "Are you sure?"
-    = link_to t('my_account'), my_account_path(current_user)
-  - else
-    = link_to t('log_in'), new_user_session_path
-    |
-    = link_to t('registration'), new_user_registration_path

@@ -1,0 +1,35 @@
+$('#edit-user').empty();
+<% if params[:type] == 'name' %>
+  $('#edit-user').html('<%= j render "edit_name" %>');
+  $('#save').click(function() {
+    $.ajax({
+      url: '/users/save_user_name',
+      type: 'POST',
+      data: { first_name: $('#first_name').val(), last_name: $('#last_name').val() },
+      success: function() {
+        window.location.href = "/my_account";
+      },
+      error: function(data) {
+        $('#edit-user').find('.form-group').addClass('has-error');
+        $('#edit-user').find('span.error').text(JSON.parse(data.responseText).errors[0]);
+      }
+    });
+  });
+<% elsif params[:type] == 'password' %>
+  $('#edit-user').html('<%= j render "edit_password" %>');
+  $('#save').click(function() {
+    $.ajax({
+      url: '/users/save_user_password',
+      type: 'POST',
+      data: { current_password: $('#current_password').val(), password: $('#password').val(), password_confirmation: $('#password_confirmation').val() },
+      success: function() {
+        $('#edit-user').empty();
+      },
+      error: function(data) {
+        $('#edit-user').find('.form-group').addClass('has-error');
+        $('#edit-user').find('span.error').text(JSON.parse(data.responseText).errors);
+      }
+    });
+  });
+<% end %>
+$(".cancel").click(function() {$('#edit-user').empty(); });

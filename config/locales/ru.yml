@@ -4,6 +4,7 @@ ru:
   registration: 'Регистрация'
   personal_info: 'Персональные Данные'
   my_account: 'Мой аккаунт'
+  name: 'Полное имя'
   first_name: 'Имя'
   last_name: 'Фамилия'
   email: 'Электронный адрес'

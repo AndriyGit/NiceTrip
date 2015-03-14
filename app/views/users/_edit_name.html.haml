@@ -1,0 +1,10 @@
+.form-inline
+  .form-group
+    = label_tag :first_name, t('first_name')
+    = text_field_tag :first_name, current_user.first_name, class: 'form-control'
+
+  .form-group
+    = label_tag :last_name, t('last_name')
+    = text_field_tag :last_name, current_user.last_name, class: 'form-control'
+  = render 'control_buttons'
+%span.error.text-danger

@@ -35,7 +35,7 @@ class User
   # field :locked_at,       :type => Time
   field :first_name, type: String
   field :last_name,  type: String
-
+  validates_presence_of :first_name, :last_name, message: 'first_last_name_cant_be_blank'
 
   #this should be deleted when issue #2882 is fixed - https://github.com/plataformatec/devise/pull/2882
   # delete it if authorization will be ok or uncomment lines below otherwise
@@ -46,11 +46,14 @@ class User
   #   end
   # end
 
-  has_many :base_object
+  has_many :base_objects
 
   def name
     first_name + ' ' + last_name
   end
 
+  def change_password(current_password, new_password, password_confirmation)
+    update_with_password({current_password: current_password, password: new_password, password_confirmation: password_confirmation})
+  end
 
 end

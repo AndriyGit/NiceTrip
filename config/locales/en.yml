@@ -24,7 +24,10 @@ en:
   log_in: 'Log In'
   registration: 'Registration'
   personal_info: 'Personal Info'
-  my_account: 'My account'
+  my_account: 'My Account'
+  edit_name: 'Edit Name'
+  change_password: 'Change Password'
+  name: 'Name'
   first_name: 'First Name'
   last_name: 'Last Name'
   email: 'Email'
@@ -46,3 +49,6 @@ en:
   add_new_hotel: 'Add new hotel'
   add_new_showplace: 'Add new showplace'
   add_new_catering: 'Add new catering'
+  first_last_name_cant_be_blank: "First Name and Last Name Can't be blank!"
+  password_confirmation: "Password Confirmation Doesn't Match Password"
+  invalid_current_password: "Invalid Current Password"

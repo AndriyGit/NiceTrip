@@ -9,19 +9,26 @@
         = link_to t('home'), '/'
       %li
         = link_to t('about'), '#'
-      %li
-        = link_to t('booking'), '#'
-      %li
-        = link_to t('add_new_place'), '#'
-        %ul.sub-menu
-          %li
-            = link_to t('hotel'), new_base_object_path(type: 'hotel')
-          %li
-            = link_to t('showplace'), new_base_object_path(type: 'showplace')
-          %li
-            = link_to t('catering'), new_base_object_path(type: 'catering')
-      %li
-        = link_to t('mail_us'), '#'
+      - if user_signed_in?
+        %li
+          = link_to t('add_new_place'), '#'
+          %ul.sub-menu
+            %li
+              = link_to t('hotel'), new_base_object_path(type: 'hotel')
+            %li
+              = link_to t('showplace'), new_base_object_path(type: 'showplace')
+            %li
+              = link_to t('catering'), new_base_object_path(type: 'catering')
+        %li
+          = link_to t('my_account'), my_account_path
+        %li
+          = link_to t('log_out'), destroy_user_session_path, method: :delete, confirm: "Are you sure?"
+      - else
+        %li
+          = link_to t('registration'), new_user_registration_path
+        %li
+          = link_to t('log_in'), new_user_session_path
+
     :javascript
       $( "span.menu" ).click(function() {
         $( "ul.cl-effect-1" ).slideToggle( 300, function() { });
