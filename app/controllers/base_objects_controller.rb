@@ -22,6 +22,11 @@ class BaseObjectsController < ApplicationController
     end
   end
 
+  def common_permitted_params
+    [:name, :address, :rating, :latitude, :longitude, :image]
+  end
+
+
   private
 
   def object_type

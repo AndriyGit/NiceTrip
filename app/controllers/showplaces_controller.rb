@@ -1,12 +1,12 @@
 class ShowplacesController < BaseObjectsController
 
   def create_object
-    @object = Showplace.new(permited_params)
+    @object = Showplace.new(permitted_params)
   end
 
   private
 
-  def permited_params
-    params.require(:showplace).permit(:name, :kind, :address, :rating, :image, :latitude, :longitude)
+  def permitted_params
+    params.require(:showplace).permit(common_permitted_params + [:kind])
   end
 end

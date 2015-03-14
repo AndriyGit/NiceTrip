@@ -1,14 +1,14 @@
 class CateringsController < BaseObjectsController
 
   def create_object
-    @object = Catering.new(permited_params)
+    @object = Catering.new(permitted_params)
   end
 
 
   private
 
-  def permited_params
-    params.require(:catering).permit(:name, :kind, :address, :rating, :image, :latitude, :longitude, :expensiveness)
+  def permitted_params
+    params.require(:catering).permit(common_permitted_params + [:kind, :expensiveness])
   end
 
 end

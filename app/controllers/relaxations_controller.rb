@@ -1,14 +1,14 @@
 class RelaxationsController < BaseObjectsController
 
   def create_object
-    @object = Relaxation.new(permited_params)
+    @object = Relaxation.new(permitted_params)
   end
 
 
   private
 
-  def permited_params
-    params.require(:relaxation).permit(:name, :kind, :address, :rating, :image, :latitude, :longitude)
+  def permitted_params
+    params.require(:relaxation).permit(common_permitted_params + [:kind])
   end
 
 end

@@ -1,13 +1,14 @@
 class HotelsController < BaseObjectsController
 
   def create_object
-    @object = Hotel.new(permited_params)
+    @object = Hotel.new(permitted_params)
   end
+
 
   private
 
-  def permited_params
-    params.require(:hotel).permit(:name, :address, :rating, :image, :latitude, :longitude ,:min_price, :number_of_stars)
+  def permitted_params
+    params.require(:hotel).permit(common_permitted_params +  [:min_price, :number_of_stars])
   end
 
 end
