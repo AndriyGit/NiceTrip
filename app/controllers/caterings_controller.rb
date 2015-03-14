@@ -7,6 +7,6 @@ class CateringsController < BaseObjectsController
   private
 
   def permited_params
-    params.require(:catering).permit(:name, :kind, :rating, :image)
+    params.require(:catering).permit(:name, :kind, :address, :rating, :image, :latitude, :longitude, :expensiveness)
   end
 end

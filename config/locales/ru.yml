@@ -29,3 +29,4 @@ ru:
   images: 'Фотографии'
   min_price: 'Минимальная стоимость за 1 ночь'
   number_of_stars: 'Количество звезд'
+  expensiveness: 'Затратность'

@@ -13,12 +13,22 @@
     = f.text_field :name
   .field
     = f.label :kind, t('kind_of_catering')
-    = f.text_area :kind
+    = f.select :kind, options_for_select(Catering::KINDS::ALL)
+  .field
+    = f.label :address, t('address')
+    = f.text_area :address
   .field
     = f.label :rating, t('raiting')
-    = f.text_field :rating
+    = f.number_field :rating, in: 1...11
   .field
-    = f.label :image, t('Add image')
+    = f.label :image, t('images')
     = f.file_field :image
+  .field
+    = f.label :expensiveness, t('expensiveness')
+    = f.select :expensiveness, options_for_select(Catering::EXPENSIVENESS::ALL)
+  .field
+    = f.hidden_field :latitude, :value => 70
+  .field
+    = f.hidden_field :longitude, :value => 70
   .actions
     = f.submit t('save')
