@@ -39,16 +39,19 @@ en:
   hotel: 'Hotel'
   showplace: 'Showplace'
   catering: 'Catering'
+  relaxation_place: 'Relaxation place'
   mail_us: 'Mail Us'
   name: 'Name'
   address: 'Address'
   kind_of_showplace: 'Kind of showplace'
   kind_of_catering: 'Kind of catering'
+  kind_of_relaxation_place: 'Kind of relaxation place'
   rating: 'Rating'
   save: 'Save'
   add_new_hotel: 'Add new hotel'
   add_new_showplace: 'Add new showplace'
   add_new_catering: 'Add new catering'
+  add_new_relaxation_place: 'Add new relaxation place'
   first_last_name_cant_be_blank: "First Name and Last Name Can't be blank!"
   password_confirmation: "Password Confirmation Doesn't Match Password"
   invalid_current_password: "Invalid Current Password"
