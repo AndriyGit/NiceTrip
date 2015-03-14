@@ -75,6 +75,7 @@
     %th Name
     %th Address
     %th Raiting
+    %th Image
     //%th User
     %th
     %th
@@ -85,6 +86,7 @@
       %td= object.name
       %td= object.address
       %td= object.rating
+      %td= image_tag(object.image_url(:tiny_thumb), width: 50, height: 50, class: "circle-extrasmall")
       //%td= object.user.name
       %td= link_to 'Show', object
       %td= link_to 'Edit', edit_base_object_path(object)
