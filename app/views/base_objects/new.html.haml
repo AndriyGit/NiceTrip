@@ -11,8 +11,8 @@
       %ul
         - @object.errors.full_messages.each do |msg|
           %li= msg
-  = f.hidden_field :latitude, value: 50
-  = f.hidden_field :longitude, value: 50
+  = f.hidden_field :latitude, value: nil, id: 'latitude'
+  = f.hidden_field :longitude, value: nil, id: 'longitude'
   .form-group.col-md-6
     = f.label :name, t('name'), class: 'center-block'
     = f.text_field :name, class: 'form-control'
@@ -32,4 +32,4 @@
     .col-md-6
       = f.submit t('save'), class: 'btn btn-info btn-block'
 #map.center-block
-= render 'shared/google_maps'
+  = render 'shared/google_maps'
