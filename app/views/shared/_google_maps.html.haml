@@ -1,10 +1,9 @@
 :javascript
   var map = new GMaps({
     div: '#map',
-    lat: -49.4411696,
-    lng: -32.0660754
+    lat: 49.4411696,
+    lng: 32.0660754,
   });
-  console.log(map);
   GMaps.geolocate({
     success: function(position) {
       map.setCenter(position.coords.latitude, position.coords.longitude);
@@ -19,3 +18,4 @@
     always: function() {
     }
   });
+
