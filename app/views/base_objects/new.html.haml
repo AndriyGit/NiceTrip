@@ -1,6 +1,9 @@
-- name = ['add_new_', @type].join('')
-%h1= t(name)
-
+.head-bg.green
+  = render 'shared/nav'
+.booking
+  .container
+    .booking-info
+      %h3= t("add_new_#{@type}")
 = form_for @object do |f|
   - if @object.errors.any?
     #error_explanation
@@ -27,3 +30,5 @@
     = f.hidden_field :longitude, :value => 50
   .actions
     = f.submit t('save')
+%div{style: 'width: 800px;'}
+  #map{style: 'width: 800px; height: 400px;'}

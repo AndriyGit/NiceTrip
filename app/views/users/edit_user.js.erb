@@ -11,20 +11,14 @@
 <% end %>
 $(".cancel").click(function() { $('#edit-user').empty(); });
 function update_user(type, data){
-  $.ajax({
-    url: '/users/save_user_' + type,
-    type: 'POST',
-    data: data,
-    success: function() {
-      if (type == 'name') {
-        window.location.href = "/my_account"
-      } else {
-        $('#edit-user').empty()
-      }
-    },
-    error: function(data) {
-      $('#edit-user').find('.form-group').addClass('has-error');
-      $('#edit-user').find('span.error').text(JSON.parse(data.responseText).errors);
+  $.post('/users/save_user_' + type, data).success(function() {
+    if (type == 'name') {
+      window.location.href = "/my_account"
+    } else {
+      $('#edit-user').empty()
     }
+  }).error(function(data) {
+    $('#edit-user').find('.form-group').addClass('has-error');
+    $('#edit-user').find('span.error').text(JSON.parse(data.responseText).errors);
   });
 }

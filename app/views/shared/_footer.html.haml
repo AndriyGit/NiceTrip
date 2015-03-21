@@ -8,15 +8,21 @@
       .footer-nav
         %ul.cl-effect-1
           %li
-            = link_to 'HOME', '#'
+            = link_to t('home'), '/'
           %li
-            = link_to 'ABOUT', '#'
-          %li
-            = link_to 'BOOKING', '#'
-          %li
-            = link_to 'NEWS', '#'
-          %li
-            = link_to 'MAIL US', '#'
+            = link_to t('about'), '#'
+          - if user_signed_in?
+            %li
+              = link_to t('add_new_place'), '#'
+            %li
+              = link_to t('my_account'), my_account_path
+            %li
+              = link_to t('log_out'), destroy_user_session_path, method: :delete, confirm: "Are you sure?"
+          - else
+            %li
+              = link_to t('registration'), new_user_registration_path
+            %li
+              = link_to t('log_in'), new_user_session_path
     .clearfix
 :javascript
   $(document).ready(function() {
