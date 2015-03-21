@@ -26,10 +26,11 @@
   .form-group.col-md-6
     = f.label :image, t('images')
     = f.file_field :image
-  .something
-    .col-md-6
-      = f.submit t('reset'), type: 'reset', class: 'btn btn-default btn-block'
-    .col-md-6
-      = f.submit t('save'), class: 'btn btn-info btn-block'
-#map.center-block
+  .action-buttons
+    .col-md-4
+      = f.submit t('reset'), type: 'reset', class: 'btn btn-default btn-lg btn-block center-block'
+    .col-md-4
+    .col-md-4
+      = f.submit t('save'), class: 'btn btn-info btn-lg btn-block center-block'
+#map
   = render 'shared/google_maps'
