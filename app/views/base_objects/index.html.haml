@@ -8,10 +8,6 @@
       = image_tag(object.image_url(:full_thumb))
       .top-grid-info
         %h3= object.name
-        %p
-          Address:
-          =object.address
-        %p
-          Rating:
-          = object.rating
+        %p Address: #{object.address}
+        %p Rating: #{object.rating}
 .clearfix
