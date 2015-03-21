@@ -11,25 +11,25 @@
       %ul
         - @object.errors.full_messages.each do |msg|
           %li= msg
-  = f.hidden_field :latitude, :value => 50
-  = f.hidden_field :longitude, :value => 50
+  = f.hidden_field :latitude, value: 50
+  = f.hidden_field :longitude, value: 50
   .form-group.col-md-6
-    = f.label :name, t('name'), :class => 'center-block'
-    = f.text_field :name, :class => 'form-control'
+    = f.label :name, t('name'), class: 'center-block'
+    = f.text_field :name, class: 'form-control'
   .form-group.col-md-6
-    = f.label :address, t('address'), :class => 'center-block'
-    = f.text_field :address, :class => 'form-control'
+    = f.label :address, t('address'), class: 'center-block'
+    = f.text_field :address, class: 'form-control', id: 'address_field'
   .form-group.col-md-6
-    = f.label :rating, t('rating'), :class => 'center-block'
-    = f.number_field :rating, :class => 'form-control'
+    = f.label :rating, t('rating'), class: 'center-block'
+    = f.number_field :rating, class: 'form-control'
   = render "forms/new_#{@type}_form", f: f
   .form-group.col-md-6
     = f.label :image, t('images')
     = f.file_field :image
   .something
     .col-md-6
-      = f.submit t('reset'), :type => 'reset', :class => 'btn btn-default btn-block'
+      = f.submit t('reset'), type: 'reset', class: 'btn btn-default btn-block'
     .col-md-6
-      = f.submit t('save'), :class => 'btn btn-info btn-block'
+      = f.submit t('save'), class: 'btn btn-info btn-block'
 #map.center-block
 = render 'shared/google_maps'
