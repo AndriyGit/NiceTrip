@@ -1,19 +1,13 @@
 :javascript
-  $(document).ready(function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers([
-            {
-              "lat": 0,
-              "lng": 0,
-              "picture": {
-                "width":  38,
-                "height": 38
-              },
-              "infowindow": "hello!"
-                }
-              ]);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-      });
+  var map = new GMaps({
+    div: '#map',
+    zoom: 16,
+    lat: -12.043333,
+    lng: -77.028333,
+    click: function(e) {
+      alert('click');
+    },
+    dragend: function(e) {
+      alert('dragend');
+    }
   });

@@ -43,7 +43,6 @@ gem 'haml-rails'
 
 # gem 'annotate'
 # gem 'geocoder'
-gem 'gmaps4rails'
 
 gem 'quiet_assets'
 
