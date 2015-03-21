@@ -1,16 +1,17 @@
-$(document).ready(function(){
+function addAddressFieldChangeEvent(GoogleMapObject){
   var address_field_value = '';
-  $('#address_field').change(function(){
+  $('#address_field').change(function() {
     $('#address_field').parent().removeClass('has-error');
     address_field_value = $('#address_field').val();
     GMaps.geocode({
       address: $('#address_field').val(),
       callback: function(results, status) {
         if (status == 'OK') {
+          GoogleMap.removeMarkers();
           $('#address_field').parent().addClass('has-success');
           var latlng = results[0].geometry.location;
-          map.setCenter(latlng.lat(), latlng.lng());
-          map.addMarker({
+          GoogleMap.setCenter(latlng.lat(), latlng.lng());
+          GoogleMap.addMarker({
             lat: latlng.lat(),
             lng: latlng.lng()
           });
@@ -26,4 +27,4 @@ $(document).ready(function(){
   }).focus(function() {
     $('#address_field').val(address_field_value);
   });
-});
+}

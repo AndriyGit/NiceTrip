@@ -1,13 +1,14 @@
 :javascript
-  var map = new GMaps({
+  var GoogleMap = new GMaps({
     div: '#map',
     lat: 49.4411696,
     lng: 32.0660754,
+    draggable: true
   });
   GMaps.geolocate({
     success: function(position) {
-      map.setCenter(position.coords.latitude, position.coords.longitude);
-      map.addMarker({ lat: position.coords.latitude, lng: position.coords.longitude });
+      GoogleMap.setCenter(position.coords.latitude, position.coords.longitude);
+      GoogleMap.addMarker({ lat: position.coords.latitude, lng: position.coords.longitude });
     },
     error: function(error) {
     },
@@ -17,3 +18,15 @@
     always: function() {
     }
   });
+  google.maps.event.addListener(GoogleMap.map, 'dragstart', function() {
+    console.log('Dragging...');
+  });
+  
+  google.maps.event.addListener(GoogleMap.map, 'drag', function() {
+    console.log('Dragging...');
+  });
+  
+  google.maps.event.addListener(GoogleMap.map, 'dragend', function() {
+    console.log('Drag ended');
+  });
+  addAddressFieldChangeEvent(GoogleMap);
