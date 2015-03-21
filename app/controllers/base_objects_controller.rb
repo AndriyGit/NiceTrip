@@ -1,5 +1,7 @@
 class BaseObjectsController < ApplicationController
 
+  before_filter :authenticate_user!, except: :index
+
   def index
     @objects = BaseObject.all
   end
