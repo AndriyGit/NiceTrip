@@ -1,6 +1,6 @@
-.field.col-md-6
+.form-group.col-md-6
   = f.label :min_price, t('min_price'), class: 'center-block'
-  = f.number_field :min_price
-.field.col-md-6
+  = f.number_field :min_price, class: 'form-control'
+.form-group.col-md-6
   = f.label :number_of_stars, t('number_of_stars'), class: 'center-block'
-  = f.number_field :number_of_stars, in: 1...8
+  = f.number_field :number_of_stars, in: 1...8, class: 'form-control'
