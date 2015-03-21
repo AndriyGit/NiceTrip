@@ -1,4 +1,4 @@
-function addAddressFieldChangeEvent(GoogleMapObject){
+function addAddressFieldChangeEvent() {
   var address_field_value = '';
   $('#address_field').change(function() {
     $('#address_field').parent().removeClass('has-error');
@@ -10,14 +10,7 @@ function addAddressFieldChangeEvent(GoogleMapObject){
           GoogleMap.removeMarkers();
           $('#address_field').parent().addClass('has-success');
           var latlng = results[0].geometry.location;
-          GoogleMap.setCenter(latlng.lat(), latlng.lng());
-          GoogleMap.addMarker({
-            lat: latlng.lat(),
-            lng: latlng.lng()
-          });
-          //adding coordinats
-          $('#latitude').val(latlng.lat());
-          $('#longitude').val(latlng.lng());
+          addMarkerPosition(latlng.lat(), latlng.lng());
         } else {
           $('#address_field').parent().addClass('has-error');
           $('#address_field').val('Can not find this place');
@@ -27,4 +20,25 @@ function addAddressFieldChangeEvent(GoogleMapObject){
   }).focus(function() {
     $('#address_field').val(address_field_value);
   });
+}
+function addMarkerPosition(lat, lng) {
+  GoogleMap.setCenter(lat, lng);
+  var marker = GoogleMap.addMarker({
+    lat: lat,
+    lng: lng,
+    draggable: true
+  });
+  addListenerForMarker(marker);
+  //adding coordinats
+  coordinatsChanged(lat, lng)
+}
+function addListenerForMarker(marker) {
+  google.maps.event.addListener(marker, 'dragend', function() {
+    //adding coordinats
+    coordinatsChanged(marker.position.lat(), marker.position.lng());
+  });
+}
+function coordinatsChanged(lat, lng) {
+  $('#latitude').val(lat);
+  $('#longitude').val(lng);
 }
