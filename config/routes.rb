@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :hotels
   resources :showplaces
   resources :caterings
-  resources :relaxations
+  resources :relaxation_places
 
   get 'my_account' => 'users#show', as: :my_account
   get 'users/set_locale/:locale' => 'users#set_locale', as: :set_locale

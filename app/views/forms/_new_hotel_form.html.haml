@@ -1,0 +1,6 @@
+.field
+  = f.label :min_price, t('min_price')
+  = f.number_field :min_price
+.field
+  = f.label :number_of_stars, t('number_of_stars')
+  = f.number_field :number_of_stars, in: 1...8

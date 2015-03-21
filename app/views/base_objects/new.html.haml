@@ -1,4 +1,5 @@
-%h1= t('add_new_catering')
+- name = ['add_new_', @type].join('')
+%h1= t(name)
 
 = form_for @object do |f|
   - if @object.errors.any?
@@ -7,28 +8,22 @@
       %ul
         - @object.errors.full_messages.each do |msg|
           %li= msg
-
   .field
     = f.label :name, t('name')
     = f.text_field :name
   .field
-    = f.label :kind, t('kind_of_catering')
-    = f.select :kind, options_for_select(Catering::KINDS::ALL)
-  .field
     = f.label :address, t('address')
     = f.text_area :address
   .field
-    = f.label :rating, t('raiting')
-    = f.number_field :rating, in: 1...11
+    = f.label :rating, t('rating')
+    = f.number_field :rating
   .field
     = f.label :image, t('images')
     = f.file_field :image
+  = render "forms/new_#{@type}_form", f: f
   .field
-    = f.label :expensiveness, t('expensiveness')
-    = f.select :expensiveness, options_for_select(Catering::EXPENSIVENESS::ALL)
+    = f.hidden_field :latitude, :value => 50
   .field
-    = f.hidden_field :latitude, :value => 70
-  .field
-    = f.hidden_field :longitude, :value => 70
+    = f.hidden_field :longitude, :value => 50
   .actions
     = f.submit t('save')

@@ -1,4 +1,4 @@
-class Relaxation < BaseObject
+class RelaxationPlace < BaseObject
   include Mongoid::Document
 
   field :kind, type: String

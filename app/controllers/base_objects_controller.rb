@@ -6,7 +6,6 @@ class BaseObjectsController < ApplicationController
 
   def new
     @object = constantized_object_type.new
-    render :partial => "#{object_type.pluralize}/form"
   end
 
   def create
@@ -29,12 +28,9 @@ class BaseObjectsController < ApplicationController
 
   private
 
-  def object_type
-    params[:type]
-  end
-
   def constantized_object_type
-    object_type.capitalize.constantize
+    @type = params[:type]
+    @type.classify.constantize
   end
 
 end
