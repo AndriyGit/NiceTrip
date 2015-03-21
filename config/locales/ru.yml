@@ -25,6 +25,7 @@ ru:
   kind_of_relaxation_place: 'Вид места для отдыха'
   rating: 'Оценка'
   save: 'Сохранить'
+  reset: 'Очистить'
   add_new_hotel: 'Добавить новы отель'
   add_new_showplace: 'Добавить новую достопримечательность'
   add_new_catering: 'Добавить новый общепит'

@@ -1,3 +1,3 @@
-.field
-  = f.label :kind, t('kind_of_showplace')
+.form-group.col-md-6
+  = f.label :kind, t('kind_of_showplace'), :class => 'center-block'
   = f.select :kind, options_for_select(Showplace::KINDS::ALL)

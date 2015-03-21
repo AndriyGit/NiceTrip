@@ -48,6 +48,7 @@ en:
   kind_of_relaxation_place: 'Kind of relaxation place'
   rating: 'Rating'
   save: 'Save'
+  reset: 'Reset'
   add_new_hotel: 'Add new hotel'
   add_new_showplace: 'Add new showplace'
   add_new_catering: 'Add new catering'

@@ -1,6 +1,6 @@
-.field
+.field.col-md-6
   = f.label :kind, t('kind_of_catering')
   = f.select :kind, options_for_select(Catering::KINDS::ALL)
-.field
+.field.col-md-6
   = f.label :expensiveness, t('expensiveness')
   = f.select :expensiveness, options_for_select(Catering::EXPENSIVENESS::ALL)
