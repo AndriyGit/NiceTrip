@@ -1,8 +1,7 @@
 #user_info
-  .locale
-  = link_to 'en', set_locale_path(locale: 'en')
-  |
-  = link_to 'ru', set_locale_path(locale: 'ru')
   - if user_signed_in?
-    = image_tag(current_user.image.present? ? current_user.image_url(:tiny_thumb) : 'noavatar.gif', width: 50, height: 50, class: "circle-extrasmall")
-    %div Hello, #{current_user.first_name}
+    = image_tag(current_user.image.present? ? current_user.image_url(:tiny_thumb) : 'noavatar.gif', width: 25, height: 25, class: "circle-extrasmall")
+    %div.user_name #{current_user.first_name}
+  .locale
+    = link_to '', set_locale_path(locale: 'en'), class: 'flag-icon usa-flag'
+    = link_to '', set_locale_path(locale: 'ru'), class: 'flag-icon ukrainian-flag'

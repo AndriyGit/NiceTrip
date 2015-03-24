@@ -1,13 +1,12 @@
-= render 'shared/user_info'
 = render 'shared/header'
 .banner-grid-info.center-block
   %h3.text-upper The places where you might like...
-.top-grids
+.grid
   - @objects.each do |object|
-    .top-grid
+    .grid-item
       = image_tag(object.image_url(:full_thumb))
-      .top-grid-info
-        %h3= object.name
+      .grid-item-info
+        %h3.title.text-upper= object.name
         %p Address: #{object.address}
         %p Rating: #{object.rating}
 .clearfix
