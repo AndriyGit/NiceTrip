@@ -4,7 +4,7 @@
 .grid
   - @objects.each do |object|
     .grid-item
-      = image_tag(object.image_url(:full_thumb))
+      = image_tag(object.image_url.present? ? object.image_url(:full_thumb) : 'no_image.gif')
       .grid-item-info
         %h3.title.text-upper= object.name
         %p Address: #{object.address}
