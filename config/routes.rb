@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :base_objects, only: [:edit, :index, :show]
 
   get 'base_objects/new/:type' => 'base_objects#new', as: :new_base_object
+  get 'find_place' => 'base_objects#find_place', as: :find_place
 
   resources :hotels
   resources :showplaces

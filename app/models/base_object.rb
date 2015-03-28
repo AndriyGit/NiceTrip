@@ -23,7 +23,6 @@ class BaseObject
   def find_address
     address = Geocoder.search("#{latitude}, #{longitude}")
     if address.any?
-      p address.first.data["formatted_address"]
       address.first.data["formatted_address"]
     else
       ''

@@ -33,7 +33,7 @@ en:
   email: 'Email'
   password: 'Password'
   home: 'Home'
-  about: 'About'
+  find_place: 'Find Place'
   booking: 'Boking'
   add_new_place: 'Add new place'
   hotel: 'Hotel'
