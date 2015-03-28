@@ -2,34 +2,28 @@
   .container
     .booking-info
       %h3 Sign up
-    .col-md-6.contact-form
+    .col-md-2
+    .col-md-8
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
-
-        %div
+        .form-group
           = f.label :first_name, "First Name"
-          = f.text_field :first_name, { tabindex: '1', placeholder: 'First Name', autofocus: true }
-
-        %div
+          = f.text_field :first_name, { class: 'form-control', tabindex: '1', placeholder: 'First Name', autofocus: true }
+        .form-group
           = f.label :last_name, "Last Name"
-          = f.text_field :last_name, { tabindex: '2', placeholder: 'Last Name', autofocus: true }
-
-        %div
+          = f.text_field :last_name, { class: 'form-control', tabindex: '2', placeholder: 'Last Name', autofocus: true }
+        .form-group
           = f.label :email, "Enter Your Email Address"
-          = f.email_field :email, { tabindex: '3', placeholder: "Enter your email address",  autocomplete: 'off' }
-
-        %div
+          = f.email_field :email, { class: 'form-control', tabindex: '3', placeholder: "Enter your email address",  autocomplete: 'off' }
+        .form-group
           = f.label :password, 'Choose Your Password'
-          = f.password_field :password, { tabindex: '4', placeholder: 'Choose your password', autocomplete: 'off' }
-
-        %div
+          = f.password_field :password, { class: 'form-control', tabindex: '4', placeholder: 'Choose your password', autocomplete: 'off' }
+        .form-group
           = f.label :password_confirmation, 'Confirm Your Password'
-          = f.password_field :password_confirmation, { tabindex: '5', placeholder: "Confirm your password", autocomplete: 'off' }
-
-        %div
-          = f.label :image, t('Avatar')
+          = f.password_field :password_confirmation, { class: 'form-control', tabindex: '5', placeholder: "Confirm your password", autocomplete: 'off' }
+        .form-group
+          = f.label :image, t('avatar')
           = f.file_field :image
-
-        %div
-          = f.submit 'Sign up', { tabindex: '5' }
+        = f.submit 'Sign up', { class: 'btn btn-default', tabindex: '5' }
+    .col-md-2
 .clearfix

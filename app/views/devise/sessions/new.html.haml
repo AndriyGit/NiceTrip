@@ -2,25 +2,28 @@
   .container
     .booking-info
       %h3 Log In
-    .col-md-6.contact-form
-      = form_for(resource, as: resource_name, url: user_session_path) do |f|
+    .col-md-4
+    .col-md-4
+      = form_for(resource, as: resource_name, url: user_session_path, html: {class: 'form-horizontal center-block'}) do |f|
         = devise_error_messages!
-
-        %div
-          = f.label :email
-          = f.email_field :email, { tabindex: '28', placeholder: "Enter your email address",  autocomplete: 'off' }
-
-        %div
-          = f.label :password
-          = f.password_field :password, { tabindex: '29', placeholder: 'Choose your password', autocomplete: 'off' }
-
-        %div
-          = f.label :remember_me
-          = f.check_box :remember_me
-
-        %div
-          = link_to "Forgot Your Password?", new_password_path(resource_name)
-
-        %div
-        = f.submit 'Log In', { tabindex: '30' }
+        .form-group
+          = f.label :email, class: 'col-sm-4 control-label'
+          .col-sm-8
+            = f.email_field :email, { class: 'form-control', tabindex: '28', placeholder: "Enter your email address",  autocomplete: 'off' }
+        .form-group
+          = f.label :password, class: 'col-sm-4 control-label'
+          .col-sm-8
+            = f.password_field :password, { class: 'form-control', tabindex: '29', placeholder: 'Choose your password', autocomplete: 'off' }
+        .form-group
+          .col-sm-offset-4.col-sm-8
+            .checkbox
+              = f.label :remember_me
+              = f.check_box :remember_me
+        .form-group
+          .col-sm-offset-4.col-sm-8
+            = link_to "Forgot Your Password?", new_password_path(resource_name)
+        .form-group
+          .col-sm-offset-4.col-sm-8
+            = f.submit 'Log In', { tabindex: '30', class: 'btn btn-default'}
+    .col-md-4
 .clearfix
