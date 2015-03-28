@@ -19,4 +19,5 @@
       .head-bg.green
         = render 'shared/nav'
     = yield
-    = render 'shared/footer'
+    - unless current_page?('/users/sign_up') || current_page?('/my_account')
+      = render 'shared/footer'
