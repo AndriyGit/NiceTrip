@@ -46,22 +46,34 @@
 
 #object-detailed-info {
   width: 100%;
-
   h3 {
     text-align: center;
     color: #323232;
     font-weight: 600;
   }
-  .full-object-image.center-block {
-    width: 900px;
-  }
-  .field-name {
-    float: left;
-    margin-right: 10px;
-    font-weight: 600;
-  }
-  .filed-info {
-    clear: right;
-  }
+}
 
+#text-info-and-map {
+  float: left;
+  width: 100%;
+  background-color: #FFF;
+  padding: 30px 50px;
+  .field-details {
+    clear: both;
+    margin-bottom: 20px;
+    .field-label {
+      float: left;
+      margin-right: 10px;
+      font-weight: 600;
+    }
+    .field-value {
+      float: right;
+    }
+  }
+}
+
+#not-editable-map {
+  width: 50%;
+  height: 250px;
+  float: right;
 }

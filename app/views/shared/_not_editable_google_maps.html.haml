@@ -1,0 +1,11 @@
+:javascript
+  var NoEditableMap = new GMaps({
+    div: '#not-editable-map',
+    lat: #{lat},
+    lng: #{lng}
+  });
+  NoEditableMap.setCenter(#{lat}, #{lng});
+  var marker = NoEditableMap.addMarker({
+    lat: #{lat},
+    lng: #{lng}
+  });
