@@ -14,8 +14,12 @@
   = f.hidden_field :latitude, value: nil, id: 'latitude'
   = f.hidden_field :longitude, value: nil, id: 'longitude'
   .form-group.col-md-6
-    = f.label :name, t('name'), class: 'center-block'
-    = f.text_field :name, class: 'form-control'
+    .col-md-6
+      = f.label :name, t('name'), class: 'center-block'
+      = f.text_field :name, class: 'form-control'
+    .col-md-4
+      %label{class: 'center-block'}= t('type_of_place')
+      = build_select_type_of_place(@type)
   .form-group.col-md-6
     = f.label :address, t('address'), class: 'center-block'
     = f.text_field :address, class: 'form-control', id: 'address_field'
@@ -34,3 +38,5 @@
       = f.submit t('save'), class: 'btn btn-info btn-lg btn-block center-block'
 #map
   = render 'shared/google_maps'
+:javascript
+  AddOnChangeEventForSelectBox();

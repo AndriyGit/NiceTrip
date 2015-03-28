@@ -42,7 +42,7 @@ gem 'kaminari'
 gem 'haml-rails'
 
 # gem 'annotate'
-# gem 'geocoder'
+gem 'geocoder'
 
 gem 'quiet_assets'
 

@@ -29,20 +29,6 @@
   }
 }
 
-li {
-  & > ul {
-    display: none;
-    // position: absolute;
-    & > li {
-      float: left;
-      clear: both;
-    }
-  }
-  &:hover > ul {
-    display: block;
-  }
-}
-
 .top-nav {
   float: right;
   margin-top: .8em;

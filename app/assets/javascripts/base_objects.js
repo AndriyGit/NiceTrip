@@ -42,3 +42,8 @@ function coordinatsChanged(lat, lng) {
   $('#latitude').val(lat);
   $('#longitude').val(lng);
 }
+function AddOnChangeEventForSelectBox(){
+  $('#type_of_place').change(function(){
+    window.location = $(this).val();
+  });
+}

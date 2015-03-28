@@ -9,4 +9,10 @@ class BaseObject
   field :published, type: Boolean, default: false
 
   belongs_to :user
+
+  CATERING = 'catering'
+  HOTEL = 'hotel'
+  RELAXATION_PLACE = 'relaxation_place'
+  SHOWPLACE = 'showplace'
+  ALL = [CATERING, HOTEL, RELAXATION_PLACE, SHOWPLACE]
 end
