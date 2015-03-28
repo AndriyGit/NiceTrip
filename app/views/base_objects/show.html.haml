@@ -9,6 +9,11 @@
             #{field.capitalize}:
           %p.field-value
             = @object[field]
+      .field-details
+        %p.field-label
+          Address:
+        %p.field-value
+          = @object.find_address
     #not-editable-map.col-md-6
       = render 'shared/not_editable_google_maps', lat: @object.latitude, lng: @object.longitude
 .clearfix

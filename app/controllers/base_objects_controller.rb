@@ -31,7 +31,7 @@ class BaseObjectsController < ApplicationController
   end
 
   def common_permitted_params
-    [:name, :address, :rating, :latitude, :longitude, :image]
+    [:name, :rating, :latitude, :longitude, :image]
   end
 
 

@@ -3,7 +3,6 @@ class BaseObject
 
   mount_uploader :image, ImageUploader
   field :name, type: String
-  field :address, type: String
   field :rating, type: String
   field :latitude, type: String
   field :longitude, type: String

@@ -61,6 +61,7 @@
   .field-details {
     clear: both;
     margin-bottom: 20px;
+    height: 25px;
     .field-label {
       float: left;
       margin-right: 10px;
@@ -68,6 +69,8 @@
     }
     .field-value {
       float: right;
+      width: 70%;
+      text-align: right;
     }
   }
 }
