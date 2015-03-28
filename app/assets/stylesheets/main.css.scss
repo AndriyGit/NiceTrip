@@ -43,3 +43,25 @@
     }
   }
 }
+
+#object-detailed-info {
+  width: 100%;
+
+  h3 {
+    text-align: center;
+    color: #323232;
+    font-weight: 600;
+  }
+  .full-object-image.center-block {
+    width: 900px;
+  }
+  .field-name {
+    float: left;
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  .filed-info {
+    clear: right;
+  }
+
+}

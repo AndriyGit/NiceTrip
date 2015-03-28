@@ -1,6 +1,8 @@
 class BaseObjectsController < ApplicationController
 
   before_filter :authenticate_user!, except: :index
+  before_action :set_object, only: [:show, :edit, :update, :destroy]
+  before_action :set_text_fields_to_render, only: :show
 
   def index
     @objects = BaseObject.all
@@ -10,17 +12,22 @@ class BaseObjectsController < ApplicationController
     @object = constantized_object_type.new
   end
 
+  def edit
+  end
+
   def create
     create_object
     @object.user = current_user
 
-    respond_to do |format|
-      if @object.save
-        format.html { redirect_to base_objects_path, notice: '#{@object.type} was successfully created.' }
-      else
-        format.html { render :partial => 'form' }
-      end
+    if @object.save
+      redirect_to base_objects_path #, notice: '#{@object.type} was successfully created.'
+    else
+      # render :new, locals: { type: @type }
+      redirect_to :back, notice: "You didn't fill all required fields. Please try again."
     end
+  end
+
+  def show
   end
 
   def common_permitted_params
@@ -29,6 +36,15 @@ class BaseObjectsController < ApplicationController
 
 
   private
+
+  def set_object
+    @object = BaseObject.find(params[:id])
+  end
+
+  def set_text_fields_to_render
+    all_fields = @object.attributes.keys
+    @text_fields_to_render = @object.attributes.keys - BaseObject::FIELDS_DO_NOT_RENDER
+  end
 
   def constantized_object_type
     @type = params[:type]

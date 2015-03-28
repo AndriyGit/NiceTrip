@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'base_objects#index'
 
-  resources :base_objects, only: [:edit, :index]
+  resources :base_objects, only: [:edit, :index, :show]
 
   get 'base_objects/new/:type' => 'base_objects#new', as: :new_base_object
 

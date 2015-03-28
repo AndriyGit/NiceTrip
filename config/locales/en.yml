@@ -62,3 +62,4 @@ en:
   min_price: 'Minimum price per night'
   number_of_stars: 'Number of stars'
   expensiveness: 'Expensiveness'
+  dossier_for: ! 'Dossier for %{object_name}'

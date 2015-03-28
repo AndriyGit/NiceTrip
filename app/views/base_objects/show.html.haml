@@ -1,0 +1,13 @@
+#object-detailed-info
+  %h3.text-upper= t('dossier_for', object_name: @object.name)
+  .full-object-image.center-block
+    = image_tag(@object.image_url(:full))
+  .grid-item-info.center-block.col-md-6
+    - @text_fields_to_render.each do |field|
+      .field-details
+        %p.field-name
+          #{field.capitalize}:
+        %p.filed-info
+          = @object[field]
+  #map.col-md-6
+    = render 'shared/google_maps'

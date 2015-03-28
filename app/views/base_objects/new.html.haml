@@ -1,9 +1,8 @@
-.head-bg.green
-  = render 'shared/nav'
 .booking
   .container
     .booking-info
       %h3= t("add_new_#{@type}")
+%p#notice= notice
 = form_for @object do |f|
   - if @object.errors.any?
     #error_explanation

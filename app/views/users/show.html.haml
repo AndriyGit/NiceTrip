@@ -7,12 +7,12 @@
     .mail-info-grids
       .col-md-4.mail-info-grid.center-block
         %div#avatar_block
-          = image_tag(current_user.image.present? ? current_user.image_url(:full) : 'noavatar.gif', width: 300, height: 300, class: "img-circle center-block")
+          = image_tag(current_user.image.present? ? current_user.image_url(:medium) : 'noavatar.gif', width: 300, height: 300, class: "img-circle center-block")
         %br
         - if current_user.image.present?
           = link_to t('delete_avatar'), delete_avatar_path, class: 'btn btn-info btn-block'
         - else
-          = form_for(current_user, url: upload_avatar_path) do |f| 
+          = form_for(current_user, url: upload_avatar_path) do |f|
             = f.file_field :image, accept: 'image/png,image/gif,image/jpeg, image/jpg', id: 'upload_image', style: 'display:none;'
             = link_to t('upload_avatar'), 'javascript:void(0);', class: 'btn btn-info btn-block', onclick: 'UploadImageClick();'
       .col-md-8

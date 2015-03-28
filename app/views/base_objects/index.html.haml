@@ -4,9 +4,10 @@
 .grid
   - @objects.each do |object|
     .grid-item
-      = image_tag(object.image_url.present? ? object.image_url(:full_thumb) : 'no_image.gif')
+      = link_to((image_tag(object.image_url(:medium_thumb))), base_object_path(object.id))
       .grid-item-info
-        %h3.title.text-upper= object.name
+        %h3.title.text-upper
+          = link_to (object.name), base_object_path(object.id)
         %p Address: #{object.address}
         %p Rating: #{object.rating}
 .clearfix
