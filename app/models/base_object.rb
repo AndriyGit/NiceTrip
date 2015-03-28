@@ -1,5 +1,6 @@
 class BaseObject
   include Mongoid::Document
+
   mount_uploader :image, ImageUploader
   field :name, type: String
   field :address, type: String
@@ -19,5 +20,15 @@ class BaseObject
   FIELDS_DO_NOT_RENDER = ['_id', '_type', 'latitude', 'longitude', 'published', 'user_id', 'image']
 
   validates_presence_of :name, :rating, :latitude, :longitude
+
+  def find_address
+    address = Geocoder.search("#{latitude}, #{longitude}")
+    if address.any?
+      p address.first.data["formatted_address"]
+      address.first.data["formatted_address"]
+    else
+      ''
+    end
+  end
 
 end

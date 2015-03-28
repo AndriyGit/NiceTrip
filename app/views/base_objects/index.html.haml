@@ -8,6 +8,6 @@
       .grid-item-info
         %h3.title.text-upper
           = link_to (object.name), base_object_path(object.id)
-        %p Address: #{object.address}
+        %p Address: #{object.find_address}
         %p Rating: #{object.rating}
 .clearfix
