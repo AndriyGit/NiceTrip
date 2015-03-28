@@ -30,7 +30,7 @@ function addMarkerPosition(lat, lng) {
   });
   addListenerForMarker(marker);
   //adding coordinats
-  coordinatsChanged(lat, lng)
+  coordinatsChanged(lat, lng);
 }
 function addListenerForMarker(marker) {
   google.maps.event.addListener(marker, 'dragend', function() {

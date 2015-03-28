@@ -3,42 +3,42 @@
     .booking-info
       %h3= t("add_new_#{@type}")
 %p#notice= notice
-%div
-  = form_for @object do |f|
-    - if @object.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@object.errors.count, "error")} prohibited this data from being saved:"
-        %ul
-          - @object.errors.full_messages.each do |msg|
-            %li= msg
-    = f.hidden_field :latitude, value: nil, id: 'latitude'
-    = f.hidden_field :longitude, value: nil, id: 'longitude'
-    .form-group.col-md-6
-      .col-md-6
-        = f.label :name, t('name'), class: 'center-block'
-        = f.text_field :name, class: 'form-control'
-      .col-md-4
-        %label{class: 'center-block'}= t('type_of_place')
-        = build_select_type_of_place(@type)
-    .form-group.col-md-6
-      = f.label :address, t('address'), class: 'center-block'
-      = f.text_field :address, class: 'form-control', id: 'address_field'
-    .form-group.col-md-6
-      = f.label :rating, t('rating'), class: 'center-block'
-      = f.number_field :rating, class: 'form-control'
-    = render "forms/new_#{@type}_form", f: f
-    .form-group.col-md-6
-      = f.label :image, t('images')
-      = f.file_field :image
-    %div.map-with-bottons
-      #map
-        = render 'shared/google_maps'
-      .action-buttons
-        .col-md-4
-          = f.submit t('reset'), type: 'reset', class: 'btn btn-default btn-lg btn-block center-block'
-        .col-md-4
-        .col-md-4
-          = f.submit t('save'), class: 'btn btn-info btn-lg btn-block center-block'
-
+= form_for @object do |f|
+  - if @object.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@object.errors.count, "error")} prohibited this data from being saved:"
+      %ul
+        - @object.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :latitude, value: nil, id: 'latitude'
+  = f.hidden_field :longitude, value: nil, id: 'longitude'
+  .form-group.col-md-6
+    .col-md-6
+      = f.label :name, t('name'), class: 'center-block'
+      = f.text_field :name, class: 'form-control'
+    .col-md-4
+      %label{class: 'center-block'}= t('type_of_place')
+      = build_select_type_of_place(@type)
+  .form-group.col-md-6
+    = f.label :address, t('address'), class: 'center-block'
+    = f.text_field :address, class: 'form-control', id: 'address_field'
+  .form-group.col-md-6
+    = f.label :rating, t('rating'), class: 'center-block'
+    = f.number_field :rating, class: 'form-control'
+  = render "forms/new_#{@type}_form", f: f
+  .form-group.col-md-6
+    = f.label :image, t('images')
+    = f.file_field :image
+  #map
+    = render 'shared/google_maps'
+  .clearfix
+  .form-group.action-buttons
+    .col-xs-2
+    .col-xs-4
+      = f.submit t('reset'), type: 'reset', class: 'btn btn-default btn-lg btn-block'
+    .col-xs-4
+      = f.submit t('save'), class: 'btn btn-info btn-lg btn-block'
+    .col-xs-2
+.clearfix
 :javascript
   AddOnChangeEventForSelectBox();
