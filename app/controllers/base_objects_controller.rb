@@ -1,7 +1,7 @@
 class BaseObjectsController < ApplicationController
 
   before_filter :authenticate_user!, except: :index
-  before_action :set_object, only: [:show, :edit, :update, :destroy]
+  before_action :set_object, only: [:show, :edit, :update, :destroy, :find_address]
   before_action :set_text_fields_to_render, only: :show
 
   def index
@@ -34,6 +34,9 @@ class BaseObjectsController < ApplicationController
     [:name, :rating, :latitude, :longitude, :image]
   end
 
+  def find_address
+    render json: {address: @object.find_address}
+  end
 
   private
 

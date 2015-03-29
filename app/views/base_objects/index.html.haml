@@ -8,6 +8,13 @@
       .grid-item-info
         %h3.title.text-upper
           = link_to (object.name), base_object_path(object.id)
-        %p Address: #{object.find_address}
+        %p{id: "find_address_#{object.id}"}
+          Address: 
+          %span.small-loader
         %p Rating: #{object.rating}
+    :javascript
+      $.get('/base_objects/find_address', {id: '#{object.id}'})
+        .done(function (data) {
+          $('#find_address_#{object.id}').text('Address: ' + data.address);
+        });
 .clearfix

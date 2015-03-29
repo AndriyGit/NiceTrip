@@ -4,10 +4,14 @@ Rails.application.routes.draw do
 
   root 'base_objects#index'
 
-  resources :base_objects, only: [:edit, :index, :show]
+  resources :base_objects, only: [:edit, :index, :show] do
+    collection do
+      get :find_address
+      get :find_place
+    end
+  end
 
   get 'base_objects/new/:type' => 'base_objects#new', as: :new_base_object
-  get 'find_place' => 'base_objects#find_place', as: :find_place
 
   resources :hotels
   resources :showplaces
