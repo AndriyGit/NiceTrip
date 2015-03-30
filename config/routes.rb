@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get :find_address
       get :find_place
+      post :search
     end
   end
 

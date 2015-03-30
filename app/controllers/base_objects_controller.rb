@@ -38,6 +38,10 @@ class BaseObjectsController < ApplicationController
     render json: {address: @object.find_address}
   end
 
+  def search
+    
+  end
+
   private
 
   def find_object

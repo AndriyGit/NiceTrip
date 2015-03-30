@@ -1,0 +1,11 @@
+.booking
+  .container
+    .booking-info
+      %h3= t("find_place")
+    = form_tag(search_base_objects_path, remote: true) do
+      .form-group.col-md-6
+        = build_select_type_of_place
+      = submit_tag t('search'), class: 'btn btn-info btn-lg btn-block'
+    #search-result-map
+      = render 'shared/search_result_map'
+.clearfix

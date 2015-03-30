@@ -11,7 +11,7 @@
             = link_to t('home'), root_path
           - if user_signed_in?
             %li
-              = link_to t('find_place'), '#'
+              = link_to t('find_place'), find_place_base_objects_path
             %li
               = link_to t('add_new_place'), new_base_object_path(type: 'hotel')
             %li
