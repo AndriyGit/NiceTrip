@@ -1,7 +1,7 @@
 class BaseObjectsController < ApplicationController
 
-  before_filter :authenticate_user!, except: :index
-  before_action :set_object, only: [:show, :edit, :update, :destroy, :find_address]
+  before_filter :authenticate_user!, except: [:index, :find_address]
+  before_action :find_object, only: [:show, :edit, :update, :destroy, :find_address]
   before_action :set_text_fields_to_render, only: :show
 
   def index
@@ -40,7 +40,7 @@ class BaseObjectsController < ApplicationController
 
   private
 
-  def set_object
+  def find_object
     @object = BaseObject.find(params[:id])
   end
 
