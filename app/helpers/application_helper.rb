@@ -1,9 +1,9 @@
 module ApplicationHelper
 
-  def build_select_type_of_place(type = '')
+  def build_select_type_of_place(type = '', disabled = false)
     options = build_transation_for_select(BaseObject::ALL)
     selected = options.select{|k,v| v == type}.values.first
-    select_tag :type_of_place, options_for_select(options, selected), id: 'type_of_place', class: 'form-control'
+    select_tag :type_of_place, options_for_select(options, selected), id: 'type_of_place', class: 'form-control', disabled: disabled
   end
 
   def build_transation_for_select(array)

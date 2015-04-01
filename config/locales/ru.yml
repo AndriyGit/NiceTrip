@@ -36,3 +36,6 @@ ru:
   expensiveness: 'Затратность'
   dossier_for: "Досье на"
   search: 'Поиск'
+  show_all: 'Показать Все'
+  cancel: 'Отмена'
+  no_result_for: 'Нет результатов для'

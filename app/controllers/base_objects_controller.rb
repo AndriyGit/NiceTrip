@@ -20,9 +20,8 @@ class BaseObjectsController < ApplicationController
     @object.user = current_user
 
     if @object.save
-      redirect_to base_objects_path #, notice: '#{@object.type} was successfully created.'
+      redirect_to new_base_object_path(type: 'hotel'), notice: "#{@object._type} was successfully created."
     else
-      # render :new, locals: { type: @type }
       redirect_to :back, notice: "You didn't fill all required fields. Please try again."
     end
   end
@@ -39,7 +38,27 @@ class BaseObjectsController < ApplicationController
   end
 
   def search
-    
+    city = Geocoder.search(params[:city])
+    circle = params[:circle] || 10
+    if city.any?
+      lat, lng = city.first.data["geometry"]["location"]["lat"], city.first.data["geometry"]["location"]["lng"]
+      objects = BaseObject.all.inject({}) do |result, object|
+        if Geocoder::Calculations.distance_between([lat, lng], [object.latitude, object.longitude]) < circle
+          result[object.id] = {
+            name: object.name,
+            image: object.image,
+            type: object._type,
+            lat: object.latitude,
+            lng: object.longitude
+          }
+        end
+        result
+      end
+      if objects.any?
+        render json: objects, status: :ok
+      end and return
+    end
+    render json: {error: "#{t('no_result_for')} #{params[:city]}"}, status: :bad_request
   end
 
   private

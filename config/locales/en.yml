@@ -64,3 +64,6 @@ en:
   expensiveness: 'Expensiveness'
   dossier_for: "Dossier for %{object_name}"
   search: 'Search'
+  show_all: 'Show All'
+  cancel: 'Cancel'
+  no_result_for: 'No result for'
