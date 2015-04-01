@@ -46,7 +46,8 @@ class BaseObjectsController < ApplicationController
         if Geocoder::Calculations.distance_between([lat, lng], [object.latitude, object.longitude]) < circle
           result[object.id] = {
             name: object.name,
-            image: object.image,
+            image: object.image.url(:for_map),
+            image_big: object.image.url(:thumb),
             type: object._type,
             lat: object.latitude,
             lng: object.longitude

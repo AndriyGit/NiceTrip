@@ -17,7 +17,12 @@ $(document).ready(function () {
               SearchMap.setCenter(value.lat, value.lng);
               SearchMap.addMarker({
                 lat: value.lat,
-                lng: value.lng
+                lng: value.lng,
+                title: value.name,
+                infoWindow: {
+                  content: '<p>'+ value.type +'</p><br><img src = "'+ value.image_big +'"><p>' + value.name + '</p>'
+                },
+                icon: value.image
               });
           });
         })
