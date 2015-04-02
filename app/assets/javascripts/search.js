@@ -24,15 +24,23 @@ function addSearch() {
                 lng: value.lng,
                 title: value.name,
                 infoWindow: {
-                  content: '<p>'+ value.type +'</p><br><img src = "'+ value.image_big +'"><p>' + value.name + '</p>'
+                  content: '<p>'+ value.type +'</p><br><img src = "'+ value.image_big +'"><p>' + value.name + '</p><p><a href="/base_objects/'+ id +'">Click me!</a></p>'
                 },
                 icon: value.image
               });
           });
         })
         .error(function (data) {
-            $('#error').text(data.responseJSON.error);
+            var response = data.responseJSON;
+            $('#error').text(response.error);
             $('#city').parent().addClass('has-error');
+            if (response.lat) {
+              SearchMap.setCenter(response.lat, response.lng);
+              SearchMap.addMarker({
+                lat: response.lat,
+                lng: response.lng,
+              });
+            }
         });
     });
 }

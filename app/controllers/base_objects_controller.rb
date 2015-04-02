@@ -57,6 +57,8 @@ class BaseObjectsController < ApplicationController
       end
       if objects.any?
         render json: objects, status: :ok
+      else
+        render json: { error: "#{t('no_place_found_for')} #{params[:city]}", lat: lat, lng: lng }, status: :bad_request
       end and return
     end
     render json: {error: "#{t('no_result_for')} #{params[:city]}"}, status: :bad_request
