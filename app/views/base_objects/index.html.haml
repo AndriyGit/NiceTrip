@@ -2,20 +2,19 @@
 .banner-grid-info.center-block
   %h3.text-upper The places where you might like...
 .grid
-  - unless @objects.blank?
-    - @objects.each do |object|
-      .grid-item
-        = link_to image_tag object.image_url(:medium_thumb), base_object_path(object.id)
-        .grid-item-info
-          %h3.title.text-upper
-            = link_to (object.name), base_object_path(object.id)
-          %p{id: "find_address_#{object.id}"}
-            Address: 
-            %span.small-loader
-          %p Rating: #{object.rating}
-      :javascript
-        $.get('/base_objects/find_address', {id: '#{object.id}'})
-          .done(function (data) {
-            $('#find_address_#{object.id}').text('Address: ' + data.address);
-          });
+  - @objects.each do |object|
+    .grid-item
+      = link_to image_tag object.image_url(:medium_thumb), base_object_path(object.id)
+      .grid-item-info
+        %h3.title.text-upper
+          = link_to (object.name), base_object_path(object.id)
+        %p{id: "find_address_#{object.id}"}
+          Address:
+          %span.small-loader
+        %p Rating: #{object.rating}
+    :javascript
+      $.get('/base_objects/find_address', {id: '#{object.id}'})
+        .done(function (data) {
+          $('#find_address_#{object.id}').text('Address: ' + data.address);
+        });
 .clearfix
