@@ -1,4 +1,4 @@
-$(document).ready(function () {
+function addSearch(){
     var city_input = $('#city');
     var search_city = $('#search_city');
     city_input.keydown(function () {
@@ -30,4 +30,4 @@ $(document).ready(function () {
             $('#error').text(data.responseJSON.error);
         });
     });
-});
+}
