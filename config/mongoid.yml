@@ -10,7 +10,6 @@ production:
   sessions:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
-      database: nice_trip_production
       options:
         consistency: :strong
         max_retries: 1
