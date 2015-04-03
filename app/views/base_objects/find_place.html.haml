@@ -16,6 +16,11 @@
         = build_select_type_of_place('', true)
       .col-md-4
         = submit_tag t('show_all'), class: 'btn btn-success', disabled: true
+    .row.radius
+      .col-md-4
+        %label= t('radius')
+        = text_field_tag nil, '10', type: 'range', min: '1', max: '50', step: '1', id: 'radius_range'
+        %span#radius 10km
     %br
     #search-result-map
       = render 'shared/search_result_map'

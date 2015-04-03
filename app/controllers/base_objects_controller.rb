@@ -39,7 +39,7 @@ class BaseObjectsController < ApplicationController
 
   def search
     city = Geocoder.search(params[:city])
-    circle = params[:circle] || 10
+    circle = params[:radius].to_i
     if city.any?
       lat, lng = city.first.data["geometry"]["location"]["lat"], city.first.data["geometry"]["location"]["lng"]
       objects = BaseObject.all.inject({}) do |result, object|

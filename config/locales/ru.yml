@@ -40,3 +40,4 @@ ru:
   cancel: 'Отмена'
   no_result_for: 'Нет результатов для'
   no_place_found_for: 'Не найдено мест для'
+  radius: 'Радиус'

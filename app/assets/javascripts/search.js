@@ -12,8 +12,12 @@ function addSearch() {
         }
     });
 
+    $('#radius_range').change(function() {
+        $('#radius').text($(this).val() + 'km');
+    });
+
     $('#search_city').click(function () {
-        $.post('/base_objects/search', {city: city_input.val()})
+        $.post('/base_objects/search', {city: city_input.val(), radius: $('#radius_range').val()})
         .done(function (data) {
           $('#city').parent().addClass('has-success');
           disableActionButtons();
