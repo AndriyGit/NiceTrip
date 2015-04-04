@@ -34,10 +34,12 @@ ru:
   min_price: 'Минимальная стоимость за 1 ночь'
   number_of_stars: 'Количество звезд'
   expensiveness: 'Затратность'
-  dossier_for: "Досье на"
+  dossier_for: "Досье на %{object_name}"
   search: 'Поиск'
   show_all: 'Показать Все'
   cancel: 'Отмена'
   no_result_for: 'Нет результатов для'
   no_place_found_for: 'Не найдено мест для'
   radius: 'Радиус'
+  edit_object: 'Редактировать объект'
+  edit_object_with_name: 'Редактировать %{object_name}'

@@ -4,14 +4,16 @@
 .grid
   - @objects.each do |object|
     .grid-item
-      = link_to image_tag(object.image_url(:medium_thumb)), base_object_path(object.id)
+      - about_object_url = "#{object._type.underscore.pluralize}/#{object.id}"
+      = link_to image_tag(object.image_url(:medium_thumb)), about_object_url
       .grid-item-info
         %h3.title.text-upper
-          = link_to (object.name), base_object_path(object.id)
+          = link_to (object.name), about_object_url
         %p{id: "find_address_#{object.id}"}
           Address:
           %span.small-loader
         %p Rating: #{object.rating}
+        %p Added by: #{object.user.name}
     :javascript
       $.get('/base_objects/find_address', {id: '#{object.id}'})
         .done(function (data) {

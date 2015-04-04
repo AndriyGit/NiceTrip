@@ -1,8 +1,8 @@
 .booking
   .container
     .booking-info
-      %h3= t("add_new_#{@type}")
-    %p#notice= notice
+      %h3= params[:action] == 'new' ? t("add_new_#{@type}") : t("edit_object_with_name", object_name: @object.name)
+    %p#notice.alert.alert-danger= notice
     = form_for @object do |f|
       - if @object.errors.any?
         #error_explanation
@@ -18,7 +18,8 @@
           = f.text_field :name, class: 'form-control'
         .col-md-4
           %label{class: 'center-block'}= t('type_of_place')
-          = build_select_type_of_place(@type)
+          - disabled = params[:action] == 'edit'
+          = build_select_type_of_place(@type, disabled)
       .form-group.col-md-6
         %label{class: 'center-block'}= t('address')
         =text_field_tag 'address_field', nil, class:'form-control'

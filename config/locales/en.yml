@@ -69,3 +69,5 @@ en:
   no_result_for: 'No result for'
   no_place_found_for: 'No place found for'
   radius: 'Radius'
+  edit_object: 'Edit Object'
+  edit_object_with_name: 'Edit %{object_name}'

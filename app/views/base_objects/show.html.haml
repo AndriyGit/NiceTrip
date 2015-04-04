@@ -1,3 +1,4 @@
+%p#notice.alert.alert-success= notice
 #object-detailed-info
   %h3.text-upper= t('dossier_for', object_name: @object.name)
   = image_tag(@object.image_url(:full), class: 'center-block')
@@ -16,4 +17,13 @@
           = @object.find_address
     #not-editable-map.col-md-6
       = render 'shared/not_editable_google_maps', lat: @object.latitude, lng: @object.longitude
+  - if @object.user == current_user
+    - edit_object_url = "#{@object.id}/edit"
+    .control-buttons
+      .col-xs-2
+      .col-xs-4
+        = link_to t('edit_object'), edit_object_url, class: 'btn btn-warning btn-lg btn-block text-upper'
+      .col-xs-4
+        = link_to t('delete_object'), '/', class: 'btn btn-danger btn-lg btn-block text-upper'
+      .col-xs-2
 .clearfix

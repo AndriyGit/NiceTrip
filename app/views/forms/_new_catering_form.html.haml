@@ -1,6 +1,6 @@
 .form-group.col-md-6
   = f.label :kind, t('kind_of_catering'), class: 'center-block'
-  = f.select :kind, options_for_select(build_transation_for_select(Catering::KINDS::ALL)), class: 'form-control'
+  = f.select :kind, options_for_select(build_transation_for_select(Catering::KINDS::ALL), @object.kind), class: 'form-control'
 .form-group.col-md-6
   = f.label :expensiveness, t('expensiveness'), class: 'center-block'
-  = f.select :expensiveness, options_for_select(build_transation_for_select(Catering::EXPENSIVENESS::ALL)), class: 'form-control'
+  = f.select :expensiveness, options_for_select(build_transation_for_select(Catering::EXPENSIVENESS::ALL), @object.expensiveness), class: 'form-control'

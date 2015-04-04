@@ -1,3 +1,3 @@
 .form-group.col-md-6
   = f.label :kind, t('kind_of_relaxation_place'), class: 'center-block'
-  = f.select :kind, options_for_select(build_transation_for_select(RelaxationPlace::KINDS::ALL)), class: 'form-control'
+  = f.select :kind, options_for_select(build_transation_for_select(RelaxationPlace::KINDS::ALL), @object.kind), class: 'form-control'

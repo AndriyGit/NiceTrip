@@ -8,11 +8,11 @@ class BaseObjectsController < ApplicationController
     @objects = BaseObject.all
   end
 
-  def new
-    @object = constantized_object_type.new
+  def show
   end
 
-  def edit
+  def new
+    @object = constantized_object_type.new
   end
 
   def create
@@ -20,13 +20,23 @@ class BaseObjectsController < ApplicationController
     @object.user = current_user
 
     if @object.save
-      redirect_to new_base_object_path(type: 'hotel'), notice: "#{@object._type} was successfully created."
+      redirect_to @object, notice: "#{@object._type} was successfully created."
     else
       redirect_to :back, notice: "You didn't fill all required fields. Please try again."
     end
   end
 
-  def show
+  def edit
+    @type = @object._type.underscore
+    render :new
+  end
+
+  def update
+    if @object.update(permitted_params)
+      redirect_to @object, notice: "#{@object.name} was successfully updated."
+    else
+      redirect_to :back, notice: "You didn't fill all required fields. Please try again."
+    end
   end
 
   def common_permitted_params
