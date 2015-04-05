@@ -3,7 +3,7 @@ class BaseObject
 
   mount_uploader :image, ImageUploader
   field :name, type: String
-  field :rating, type: String
+  field :rating, type: Integer
   field :latitude, type: String
   field :longitude, type: String
   field :published, type: Boolean, default: false
@@ -19,6 +19,7 @@ class BaseObject
   FIELDS_DO_NOT_RENDER = ['_id', '_type', 'latitude', 'longitude', 'published', 'user_id', 'image']
 
   validates_presence_of :name, :rating, :latitude, :longitude
+  validates :rating, numericality: true, inclusion: { in: 1..10 }
 
   def find_address
     address = Geocoder.search("#{latitude}, #{longitude}")

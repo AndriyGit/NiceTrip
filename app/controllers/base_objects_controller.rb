@@ -5,6 +5,8 @@ class BaseObjectsController < ApplicationController
   before_filter :is_user_owner?, only: [:edit, :destroy]
   before_action :set_text_fields_to_render, only: :show
 
+  SOME_FIELD_IS_EMPTY_MESSAGE = "You didn't fill all required fields or filled some of them incorrect. Please try again."
+
   def index
     @objects = BaseObject.all
   end
@@ -23,7 +25,7 @@ class BaseObjectsController < ApplicationController
     if @object.save
       redirect_to @object, notice: "#{@object._type} was successfully created."
     else
-      redirect_to :back, notice: "You didn't fill all required fields. Please try again."
+      redirect_to :back, notice: SOME_FIELD_IS_EMPTY_MESSAGE
     end
   end
 
@@ -36,7 +38,7 @@ class BaseObjectsController < ApplicationController
     if @object.update(permitted_params)
       redirect_to @object, notice: "#{@object.name} was successfully updated."
     else
-      redirect_to :back, notice: "You didn't fill all required fields. Please try again."
+      redirect_to :back, notice: SOME_FIELD_IS_EMPTY_MESSAGE
     end
   end
 

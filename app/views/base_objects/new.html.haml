@@ -1,3 +1,4 @@
+- required_field = params[:action] == 'new' ? true : false
 .booking
   .container
     .booking-info
@@ -15,7 +16,7 @@
       .form-group.col-md-6
         .col-md-6
           = f.label :name, t('name'), class: 'center-block'
-          = f.text_field :name, class: 'form-control'
+          = f.text_field :name, class: 'form-control', required: true
         .col-md-4
           %label{class: 'center-block'}= t('type_of_place')
           - disabled = params[:action] == 'edit'
@@ -25,11 +26,11 @@
         =text_field_tag 'address_field', nil, class:'form-control'
       .form-group.col-md-6
         = f.label :rating, t('rating'), class: 'center-block'
-        = f.number_field :rating, class: 'form-control'
+        = f.number_field :rating, class: 'form-control', required: true
       = render "forms/new_#{@type}_form", f: f
       .form-group.col-md-6
         = f.label :image, t('images')
-        = f.file_field :image
+        = f.file_field :image, required: required_field
       #map
         = render 'shared/google_maps'
       .clearfix
