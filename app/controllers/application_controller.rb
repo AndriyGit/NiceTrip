@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
    render json: { errors: message }, status: :bad_request
   end
 
+  def render_404_page
+    render :file => 'public/404_custom.html', :status => :not_found, :layout => false
+  end
+
   protected
 
   def get_locale

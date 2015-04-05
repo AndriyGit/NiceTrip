@@ -86,7 +86,11 @@ class BaseObjectsController < ApplicationController
   private
 
   def find_object
-    @object = BaseObject.find(params[:id])
+    @object = begin
+      BaseObject.find(params[:id])
+    rescue Mongoid::Errors::DocumentNotFound
+      render_404_page
+    end
   end
 
   def set_text_fields_to_render
