@@ -2,6 +2,7 @@ class BaseObjectsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :find_address]
   before_action :find_object, only: [:show, :edit, :update, :destroy, :find_address]
+  before_filter :is_user_owner?, only: :edit
   before_action :set_text_fields_to_render, only: :show
 
   def index
@@ -88,6 +89,10 @@ class BaseObjectsController < ApplicationController
   def constantized_object_type
     @type = params[:type]
     @type.classify.constantize
+  end
+
+  def is_user_owner?
+    redirect_to @object if @object.user != current_user
   end
 
 end
