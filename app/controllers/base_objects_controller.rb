@@ -2,7 +2,7 @@ class BaseObjectsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :find_address]
   before_action :find_object, only: [:show, :edit, :update, :destroy, :find_address]
-  before_filter :is_user_owner?, only: :edit
+  before_filter :is_user_owner?, only: [:edit, :destroy]
   before_action :set_text_fields_to_render, only: :show
 
   def index
@@ -37,6 +37,14 @@ class BaseObjectsController < ApplicationController
       redirect_to @object, notice: "#{@object.name} was successfully updated."
     else
       redirect_to :back, notice: "You didn't fill all required fields. Please try again."
+    end
+  end
+
+  def destroy
+    if @object.destroy
+      redirect_to root_path, notice: "#{@object.name} was successfully deleted."
+    else
+      redirect_to @object
     end
   end
 

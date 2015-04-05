@@ -4,7 +4,7 @@
 .grid
   - @objects.each do |object|
     .grid-item
-      - about_object_url = "#{object._type.underscore.pluralize}/#{object.id}"
+      - about_object_url = "#{object_type_for_url(object._type)}/#{object.id}"
       = link_to image_tag(object.image_url(:medium_thumb)), about_object_url
       .grid-item-info
         %h3.title.text-upper

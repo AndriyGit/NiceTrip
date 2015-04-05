@@ -24,6 +24,6 @@
       .col-xs-4
         = link_to t('edit_object'), edit_object_url, class: 'btn btn-warning btn-lg btn-block text-upper'
       .col-xs-4
-        = link_to t('delete_object'), '/', class: 'btn btn-danger btn-lg btn-block text-upper'
+        = link_to t('delete_object'), "/#{object_type_for_url(@object._type)}/#{@object.id}", method: :delete, data: { confirm: 'Are you sure you want to delete this object?' }, class: 'btn btn-danger btn-lg btn-block text-upper'
       .col-xs-2
 .clearfix

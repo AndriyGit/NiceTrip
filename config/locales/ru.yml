@@ -43,3 +43,4 @@ ru:
   radius: 'Радиус'
   edit_object: 'Редактировать объект'
   edit_object_with_name: 'Редактировать %{object_name}'
+  delete_object: 'Удалить объект'
