@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   post 'users/save_user_name' => "users#save_user_name"
   post 'users/save_user_password' => "users#save_user_password"
 
+  get "*path", :to => "application#render_404_page"
+
   # resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
