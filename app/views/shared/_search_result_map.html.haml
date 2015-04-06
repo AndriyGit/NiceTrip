@@ -4,8 +4,8 @@
   var image = '#{current_user.image_url(:for_map)}';
   var SearchMap = new GMaps({
     div: '#search-result-map',
-    lat: 49.4411696,
-    lng: 32.0660754
+    lat: curr_lat,
+    lng: curr_lng
   });
   GMaps.geolocate({
     success: function(position) {

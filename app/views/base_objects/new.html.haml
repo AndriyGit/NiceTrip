@@ -23,7 +23,7 @@
           = build_select_type_of_place(@type, disabled)
       .form-group.col-md-6
         %label{class: 'center-block'}= t('address')
-        =text_field_tag 'address_field', nil, class:'form-control'
+        = text_field_tag 'address_field', @object.find_address, class:'form-control'
       .form-group.col-md-6
         = f.label :rating, t('rating'), class: 'center-block'
         = f.number_field :rating, class: 'form-control', required: true
