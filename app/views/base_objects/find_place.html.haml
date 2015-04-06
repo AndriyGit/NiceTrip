@@ -5,25 +5,24 @@
     .row
       #error{style: 'height: 20px;  padding-left: 15px; color: red;'}
     .row
-      .col-md-4
-        .form-inline
-          .form-group
-            %label.sr-only
-            = text_field_tag :city, nil, class: "form-control", placeholder: "City"
+      .col-md-2
+        .radius
+          %label= t('radius')
+          = text_field_tag nil, '10', type: 'range', min: '1', max: '50', step: '1', id: 'radius_range'
+          %span#radius 10km
+        %br
+        .form-group
+          = text_field_tag :city, nil, class: "form-control", placeholder: "City"
+          %br
           = submit_tag t('search'), type: 'button', class: 'btn btn-primary', id: 'search_city', disabled: true
-          = submit_tag t('cancel'), type: 'button', class: 'btn btn-primary', id: 'cancel_city', style: "display: none;"
-      .col-md-4
-        = build_select_type_of_place('', true)
-      .col-md-4
-        = submit_tag t('show_all'), class: 'btn btn-success', disabled: true
-    .row.radius
-      .col-md-4
-        %label= t('radius')
-        = text_field_tag nil, '10', type: 'range', min: '1', max: '50', step: '1', id: 'radius_range'
-        %span#radius 10km
+        .form-group
+          = build_select_type_of_place('show_all', false, true)
+        %br
+        = submit_tag t('show_all'), class: 'btn btn-success', disabled: true, style: "display: none;"
+      .col-md-10
+        #search-result-map
+          = render 'shared/search_result_map'
     %br
-    #search-result-map
-      = render 'shared/search_result_map'
 .clearfix
 :javascript
   addSearch();

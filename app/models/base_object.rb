@@ -10,6 +10,7 @@ class BaseObject
 
   belongs_to :user
 
+  SHOW_ALL = 'show_all'
   CATERING = 'catering'
   HOTEL = 'hotel'
   RELAXATION_PLACE = 'relaxation_place'

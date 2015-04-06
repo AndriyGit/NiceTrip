@@ -60,10 +60,11 @@ class BaseObjectsController < ApplicationController
 
   def search
     city = Geocoder.search(params[:city])
+    search_in = params[:type_of_place] == 'show_all' ? BaseObject.all : BaseObject.where(_type: params[:type_of_place].camelize)
     circle = params[:radius].to_i
     if city.any?
       lat, lng = city.first.data["geometry"]["location"]["lat"], city.first.data["geometry"]["location"]["lng"]
-      objects = BaseObject.all.inject({}) do |result, object|
+      objects = search_in.inject({}) do |result, object|
         if Geocoder::Calculations.distance_between([lat, lng], [object.latitude, object.longitude]) < circle
           result[object.id] = {
             name: object.name,
@@ -79,7 +80,7 @@ class BaseObjectsController < ApplicationController
       if objects.any?
         render json: objects, status: :ok
       else
-        render json: { error: "#{t('no_place_found_for')} #{params[:city]}", lat: lat, lng: lng }, status: :bad_request
+        render json: { error: "#{t('no_place_found_for')} #{params[:city]} and #{t(params[:type_of_place])}", lat: lat, lng: lng }, status: :bad_request
       end and return
     end
     render json: {error: "#{t('no_result_for')} #{params[:city]}"}, status: :bad_request
