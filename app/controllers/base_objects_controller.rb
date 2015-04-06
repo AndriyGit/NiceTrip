@@ -85,6 +85,16 @@ class BaseObjectsController < ApplicationController
     render json: {error: "#{t('no_result_for')} #{params[:city]}"}, status: :bad_request
   end
 
+  def find_address_by_coordinats
+    address = Geocoder.search("#{params[:lat]}, #{params[:lng]}")
+    current_address = if address.any?
+      address.first.data["formatted_address"]
+    else
+      ''
+    end
+    render json: {address: current_address}
+  end
+
   private
 
   def find_object

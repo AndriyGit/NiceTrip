@@ -32,7 +32,7 @@
         = f.label :image, t('images')
         = f.file_field :image, required: required_field
       #map
-        = render 'shared/google_maps'
+        = render 'shared/google_maps', lat: @object.latitude, lng: @object.longitude
       .clearfix
       .form-group.action-buttons
         .col-xs-2

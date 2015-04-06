@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :find_address
       get :find_place
       post :search
+      get :find_address_by_coordinats
     end
   end
 

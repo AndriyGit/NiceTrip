@@ -1,31 +1,40 @@
-:javascript
-  var GoogleMap = new GMaps({
-    div: '#map',
-    lat: 49.4411696,
-    lng: 32.0660754
-  });
-  GMaps.geolocate({
-    success: function(position) {
-      GoogleMap.setCenter(position.coords.latitude, position.coords.longitude);
-      addMarkerPosition(position.coords.latitude, position.coords.longitude)
-    },
-    error: function(error) {
-    },
-    not_supported: function() {
-      alert("Your browser does not support geolocation");
-    },
-    always: function() {
-    }
-  });
-  GoogleMap.setContextMenu({
-  control: 'map',
-  options: [{
-    title: 'Add marker',
-    name: 'add_marker',
-    action: function(e) {
-      this.removeMarkers();
-      addMarkerPosition(e.latLng.lat(), e.latLng.lng());
-    }
-  }]
-  });
-  addAddressFieldChangeEvent();
+- if lat && lng
+  :javascript
+    var GoogleMap = new GMaps({
+      div: '#map',
+      lat: #{lat},
+      lng: #{lng}
+    });
+    addMarkerPosition(#{lat}, #{lng});
+- else
+  :javascript
+    var GoogleMap = new GMaps({
+      div: '#map',
+      lat: 49.4411696,
+      lng: 32.0660754
+    });
+    GMaps.geolocate({
+      success: function(position) {
+        GoogleMap.setCenter(position.coords.latitude, position.coords.longitude);
+        addMarkerPosition(position.coords.latitude, position.coords.longitude)
+      },
+      error: function(error) {
+      },
+      not_supported: function() {
+        alert("Your browser does not support geolocation");
+      },
+      always: function() {
+      }
+    });
+    GoogleMap.setContextMenu({
+    control: 'map',
+    options: [{
+      title: 'Add marker',
+      name: 'add_marker',
+      action: function(e) {
+        this.removeMarkers();
+        addMarkerPosition(e.latLng.lat(), e.latLng.lng());
+      }
+    }]
+    });
+    addAddressFieldChangeEvent();

@@ -41,6 +41,10 @@ function addListenerForMarker(marker) {
 function coordinatsChanged(lat, lng) {
   $('#latitude').val(lat);
   $('#longitude').val(lng);
+  $.get('/base_objects/find_address_by_coordinats', {lat: lat, lng: lng})
+  .done(function (data) {
+    $('#address_field').val(data.address);
+  });
 }
 function AddOnChangeEventForSelectBox(){
   $('#type_of_place').change(function(){
