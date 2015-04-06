@@ -21,8 +21,10 @@ function addSearch() {
         .done(function (data) {
           $('#city').parent().addClass('has-success');
           disableActionButtons();
-          $.each(data, function(id, value){
-              SearchMap.setCenter(value.lat, value.lng);
+          SearchMap.removeMarkers();
+          addCurrentPosition();
+          $.each(data, function(id, value) {
+              SearchMap.setCenter(curr_lat, curr_lng);
               SearchMap.addMarker({
                 lat: value.lat,
                 lng: value.lng,
@@ -63,5 +65,16 @@ function addListenerForCancelSearch() {
         enableActionButtons();
         $('#city').parent().removeClass('has-error has-success');
         $('#city').focus().val('');
+    });
+}
+function addCurrentPosition() {
+    SearchMap.addMarker({
+        lat: curr_lat,
+        lng: curr_lng,
+        title: 'You are here!',
+        infoWindow: {
+          content: '<p>You are here!</p>'
+        },
+        icon: image
     });
 }

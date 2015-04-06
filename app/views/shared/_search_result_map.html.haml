@@ -1,4 +1,7 @@
 :javascript
+  var curr_lat = 49.4411696;
+  var curr_lng = 32.0660754;
+  var image = '#{current_user.image_url(:for_map)}';
   var SearchMap = new GMaps({
     div: '#search-result-map',
     lat: 49.4411696,
@@ -7,15 +10,9 @@
   GMaps.geolocate({
     success: function(position) {
       SearchMap.setCenter(position.coords.latitude, position.coords.longitude);
-      SearchMap.addMarker({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-        title: 'You are here!',
-        infoWindow: {
-          content: '<p>You are here!</p>'
-        },
-        icon: '#{current_user.image_url(:for_map)}'
-      });
+      curr_lat = position.coords.latitude;
+      curr_lng = position.coords.longitude;
+      addCurrentPosition();
     },
     error: function(error) {
       alert('Geolocation failed: '+error.message);
