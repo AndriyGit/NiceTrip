@@ -84,3 +84,11 @@
 #notice {
   display: none;
 }
+
+#user-info {
+  label {
+    float: left;
+    clear: both;
+    text-align: left;
+  }
+}
